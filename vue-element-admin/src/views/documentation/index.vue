@@ -1,10 +1,5 @@
 <template>
   <div class="demo-app">
-    <div class="demo-app-top">
-      <button @click="toggleWeekends">toggle weekends</button>
-      <button @click="gotoPast">go to a date in the past</button>
-      (also, click a date/time to add an event)
-    </div>
     <FullCalendar
       ref="fullCalendar"
       class="demo-app-calendar"
@@ -14,12 +9,17 @@
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
       }"
+      min-time="06:00:00"
+      max-time="24:00:00"
+      :all-day-slot="alldayslot"
+      :now-indicator="nowIndicator"
       :locale="locale"
       :plugins="calendarPlugins"
       :weekends="calendarWeekends"
       :events="events"
       @dateClick="handleDateClick"
       @eventMouseEnter="eventMouseEnter"
+      @select="select"
     />
   </div>
 </template>
@@ -37,12 +37,20 @@ export default {
   },
   data: function() {
     return {
+      columnHeaderText: function(date) {
+        if (date.getDay() === 5) {
+          return 'Friday!'
+        }
+      },
       calendarPlugins: [
         // plugins must be defined in the JS
         dayGridPlugin,
         timeGridPlugin,
         interactionPlugin // needed for dateClick
       ],
+      alldayslot: false,
+      defaultView: 'timeGridWeek',
+      nowIndicator: true,
       locale: zhcnLocale,
       calendarWeekends: true,
       calendarEvents: [{ title: 'Event Now', start: new Date() }],
@@ -63,15 +71,12 @@ export default {
     eventMouseEnter(e) {
       console.log(e, 90)
     },
-    toggleWeekends() {
-      this.calendarWeekends = !this.calendarWeekends // update a property
-    },
-    gotoPast() {
-      const calendarApi = this.$refs.fullCalendar.getApi() // from the ref="..."
-      calendarApi.gotoDate('2000-01-01') // call a method on the Calendar object
-    },
-    handleDateClick(arg) {
-      console.log(arg)
+    handleDateClick(info) {
+      alert('Clicked on: ' + info.dateStr)
+      alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY)
+      alert('Current view: ' + info.view.type)
+      // change the day's background color just for fun
+      info.dayEl.style.backgroundColor = 'red'
       // if (confirm("Would you like to add an event to " + arg.dateStr + " ?")) {
       //   this.calendarEvents.push({
       //     // add new event data
@@ -80,6 +85,9 @@ export default {
       //     allDay: arg.allDay
       //   })
       // }
+    },
+    select: function(info) {
+      alert('selected ' + info.startStr + ' to ' + info.endStr)
     }
   }
 }
