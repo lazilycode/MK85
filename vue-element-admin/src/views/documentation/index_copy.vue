@@ -9,7 +9,6 @@
         center: 'title',
         right: 'timeGridWeek'
       }"
-      :height="650"
       :min-time="startTime"
       :max-time="endTime"
       :all-day-slot="alldayslot"
@@ -18,8 +17,7 @@
       :plugins="calendarPlugins"
       :weekends="calendarWeekends"
       :events="events"
-
-      :column-header-html="columnHeaderText"
+      :business-hours="true"
       @dateClick="handleDateClick"
       @eventMouseEnter="eventMouseEnter"
       @select="select"
@@ -40,26 +38,7 @@ export default {
   },
   data: function() {
     return {
-      columnHeaderText: function(e) {
-        const date = new Date(e)
-        const week = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
-        const nowweek = date.getDay()
-        let nowDay = date.getDate()
-        nowDay = nowDay < 10 ? ('0' + nowDay) : nowDay
-        let newMon = date.getMonth() + 1
-        newMon = newMon < 10 ? ('0' + newMon) : newMon
-        return '<div><p><span>' + week[nowweek] + '</span></p><p><span>' + newMon + '月' + nowDay + '</span></p></div>'
-      },
-      businessHours: [ // specify an array instead
-        {
-          daysOfWeek: [1, 2, 3, 4, 5, 6], // Monday, Tuesday, Wednesday
-          startTime: '06:00', // 8am
-          endTime: '10:00' // 6pm
-        },
-        {
-          daysOfWeek: [1, 2, 3, 4, 5, 6] // Thursday, Friday
-        }
-      ],
+      // columnHeaderText: this.headTitle(),
       startTime: '06:00:00',
       endTime: '24:00:00',
       calendarPlugins: [
@@ -74,43 +53,27 @@ export default {
       locale: zhcnLocale,
       calendarWeekends: true,
       calendarEvents: [{ title: 'Event Now', start: new Date() }],
-      events: [],
-      events1: [
+      events: [
         {
           title: 'simple event',
           start: '2019-06-04',
           rendering: 'background',
           color: '#fcf8e3',
           businessHours: {
-            startTime: '10:00',
-            endTime: '12:00'
-            // daysOfWeek: [1, 2, 3, 4, 5, 6] // Mon,Wed,Fri
+            // days of week. an array of zero-based day of week integers (0=Sunday)
+            daysOfWeek: [1, 2, 3, 4], // Monday - Thursday
+
+            startTime: '10:00', // a start time (10am in this example)
+            endTime: '18:00' // an end time (6pm in this example)
           }
-        },
-        { className: 'ooo',
-          title: 'simple event',
-          start: '2019-06-04 08:00'
         },
         {
           title: 'event with URL',
           url: 'https://www.google.com/',
-          start: '2019-06-03'
-        },
-        {
-          title: 'event with URL',
-          url: 'https://www.google.com/',
-          start: '2019-06-04',
-          businessHours: {
-            startTime: '14:00',
-            endTime: '17:00'
-            // daysOfWeek: [1, 2, 3, 4, 5, 6] // Mon,Wed,Fri
-          }
+          start: '2019-06-04'
         }
       ]
     }
-  },
-  created() {
-    this.events = this.events1
   },
   mounted() {
     this.timeLine()
@@ -138,11 +101,10 @@ export default {
       const eleArr = document.querySelectorAll('.fc-time')
       eleArr.forEach((item, index) => {
         const startTiems = item.parentNode.getAttribute('data-time').substring(0, 5)
-        if (eleArr[index + 1]) {
+        console.log(eleArr[index + 1].parentNode)
+        if (eleArr[index + 1].parentNode) {
           const endTiems = eleArr[index + 1].parentNode.getAttribute('data-time').substring(0, 5) || this.endTime
           item.innerHTML = '<span>' + startTiems + '-' + endTiems + '</span>'
-        } else {
-          item.innerHTML = '<span>' + this.endTime + '</span>'
         }
       })
     },
@@ -215,9 +177,9 @@ export default {
 @import "~@fullcalendar/daygrid/main.css";
 @import "~@fullcalendar/timegrid/main.css";
 
-thead.fc-head {
-    background-color: red;
-}
+// thead.fc-head {
+//     background-color: red;
+// }
 
 #headTitle {
     border-width: 0px;
@@ -227,9 +189,7 @@ thead.fc-head {
     width: 138px;
     word-wrap: break-word;
 }
-.fc .fc-axis{
-  padding: 0 17px;
-}
+
 .demo-app {
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
   font-size: 14px;
@@ -241,6 +201,6 @@ thead.fc-head {
 
 .demo-app-calendar {
   margin: 0 auto;
-  // max-width: 1100px;
+  // max-width: 900px;
 }
 </style>
