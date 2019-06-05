@@ -18,7 +18,6 @@
       :plugins="calendarPlugins"
       :weekends="calendarWeekends"
       :events="events"
-
       :column-header-html="columnHeaderText"
       @dateClick="handleDateClick"
       @eventMouseEnter="eventMouseEnter"
@@ -50,18 +49,13 @@ export default {
         newMon = newMon < 10 ? ('0' + newMon) : newMon
         return '<div><p><span>' + week[nowweek] + '</span></p><p><span>' + newMon + '月' + nowDay + '</span></p></div>'
       },
-      businessHours: [ // specify an array instead
-        {
-          daysOfWeek: [1, 2, 3, 4, 5, 6], // Monday, Tuesday, Wednesday
-          startTime: '06:00', // 8am
-          endTime: '10:00' // 6pm
-        },
-        {
-          daysOfWeek: [1, 2, 3, 4, 5, 6] // Thursday, Friday
-        }
-      ],
-      startTime: '06:00:00',
-      endTime: '24:00:00',
+      businessHours: {
+        daysOfWeek: [], // Monday, Tuesday, Wednesday
+        startTime: '06:00',
+        endTime: '24:00'
+      },
+      startTime: '06:00',
+      endTime: '24:00',
       calendarPlugins: [
         // plugins must be defined in the JS
         dayGridPlugin,
@@ -78,33 +72,26 @@ export default {
       events1: [
         {
           title: 'simple event',
-          start: '2019-06-04',
-          rendering: 'background',
-          color: '#fcf8e3',
-          businessHours: {
-            startTime: '10:00',
-            endTime: '12:00'
-            // daysOfWeek: [1, 2, 3, 4, 5, 6] // Mon,Wed,Fri
-          }
+          start: '2019-06-05 08:00',
+          // rendering: 'background',
+          // color: '#fcf8e3',
+          className: 'blue'
         },
-        { className: 'ooo',
+        { className: 'green',
           title: 'simple event',
           start: '2019-06-04 08:00'
         },
         {
+          className: 'rest',
           title: 'event with URL',
-          url: 'https://www.google.com/',
-          start: '2019-06-03'
+          start: '2019-06-06 08:00',
+          // rendering: 'background'
+          color: '#f5d31e'
         },
         {
           title: 'event with URL',
-          url: 'https://www.google.com/',
-          start: '2019-06-04',
-          businessHours: {
-            startTime: '14:00',
-            endTime: '17:00'
-            // daysOfWeek: [1, 2, 3, 4, 5, 6] // Mon,Wed,Fri
-          }
+          start: '2019-06-04'
+
         }
       ]
     }
@@ -113,10 +100,17 @@ export default {
     this.events = this.events1
   },
   mounted() {
+    this.tableOne()
     this.timeLine()
+    this.adjustCss()
     // document.querySelectorAll('.fc-time')
   },
   methods: {
+    tableOne() {
+      const tableone = this.domChange('.fc-axis.fc-widget-header')[0]
+      tableone.innerHTML = '<div class="out"> <b>类别</b><em>姓名</em></div>'
+      console.log()
+    },
     // 表头时间格式调整
     headTitle(e) {
       const date = new Date(e)
@@ -128,59 +122,27 @@ export default {
       newMon = newMon < 10 ? ('0' + newMon) : newMon
       return '<div><p><span>' + week[nowweek] + '</span></p><p><span>' + newMon + '月' + nowDay + '</span></p></div>'
     },
+    // 选着择dom
+    domChange(e) {
+      return document.querySelectorAll(e)
+    },
     // 操作dom 时间格式化
     timeLine() {
-      console.log(this.time_to_sec(this.startTime))
-      console.log(this.formatSeconds(this.time_to_sec(this.startTime)))
-      console.log()
-      // console.log() //
-      // .map((item))
-      const eleArr = document.querySelectorAll('.fc-time')
+      const eleArr = this.domChange('.fc-axis.fc-time.fc-widget-content')
       eleArr.forEach((item, index) => {
         const startTiems = item.parentNode.getAttribute('data-time').substring(0, 5)
-        if (eleArr[index + 1]) {
-          const endTiems = eleArr[index + 1].parentNode.getAttribute('data-time').substring(0, 5) || this.endTime
+        if (index + 1 !== eleArr.length) {
+          const endTiems = eleArr[index + 1].parentNode.getAttribute('data-time').substring(0, 5)
           item.innerHTML = '<span>' + startTiems + '-' + endTiems + '</span>'
         } else {
-          item.innerHTML = '<span>' + this.endTime + '</span>'
+          item.innerHTML = '<span>' + startTiems + '-' + this.endTime + '</span>'
         }
       })
     },
-    // 时转秒
-    time_to_sec(time) {
-      var s = ''
-      var hour = time.split(':')[0]
-      var min = time.split(':')[1]
-      var sec = time.split(':')[2]
-      s = Number(hour * 3600) + Number(min * 60) + Number(sec)
-      return s
-    },
-    // 秒转时
-    formatSeconds(value) {
-      var secondTime = parseInt(value)
-      var minuteTime = 0
-      var hourTime = 0
-      if (secondTime > 60) {
-        // 获取分钟，除以60取整数，得到整数分钟
-        minuteTime = parseInt(secondTime / 60)
-        // 获取秒数，秒数取佘，得到整数秒数
-        secondTime = parseInt(secondTime % 60)
-        // 如果分钟大于60，将分钟转换成小时
-        if (minuteTime > 60) {
-          // 获取小时，获取分钟除以60，得到整数小时
-          hourTime = parseInt(minuteTime / 60)
-          // 获取小时后取佘的分，获取分钟除以60取佘的分
-          minuteTime = parseInt(minuteTime % 60)
-        }
-      }
-      var result = '' + parseInt(secondTime)
-      if (minuteTime > 0) {
-        result = '' + parseInt(minuteTime) + ':' + result
-      }
-      if (hourTime > 0) {
-        result = '' + parseInt(hourTime) + ':' + result
-      }
-      return result
+
+    // 根据不同的className 调整css
+    adjustCss() {
+      console.log(this.domChange('.rest')[0].innerHTML = 'kkk')
     },
 
     eventMouseEnter(e) {
@@ -229,6 +191,33 @@ thead.fc-head {
 }
 .fc .fc-axis{
   padding: 0 17px;
+}
+
+/*模拟对角线*/
+.out {
+  left: -20px;
+    border-top: 73px #D6D3D6 solid;
+    width: 0px;
+    height: 0px;
+    border-left: 116px #BDBABD solid;
+    position: relative;
+}
+
+b {
+  font-style: normal;
+  display: block;
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: 35px;
+}
+em {
+  font-style: normal;
+  display: block;
+  position: absolute;
+  top: -25px;
+  left: -70px;
+  width: 55x;
 }
 .demo-app {
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;

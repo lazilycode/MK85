@@ -105,6 +105,8 @@ export default {
         if (eleArr[index + 1].parentNode) {
           const endTiems = eleArr[index + 1].parentNode.getAttribute('data-time').substring(0, 5) || this.endTime
           item.innerHTML = '<span>' + startTiems + '-' + endTiems + '</span>'
+        } else {
+          item.innerHTML = '<span>' + this.endTime + '</span>'
         }
       })
     },
