@@ -5,7 +5,7 @@
       <el-col :span="16">
         <el-button size="small">默认按钮</el-button>
         <el-button type="primary" size="small">主要按钮</el-button>
-        <el-button type="success" size="small">成功按钮</el-button>
+        <el-button type="success" size="small" @click="refresh">刷新</el-button>
         <span v-for="(item,index) in 3" :key="index">
           <button class="box" />
           <span>{{ item }}</span>
@@ -28,7 +28,7 @@
     </el-row>
 
     <FullCalendar
-      ref="fullCalendar"
+      ref="Calendar"
       class="demo-app-calendar"
       default-view="timeGridWeek"
       :header="{
@@ -109,7 +109,7 @@ export default {
       nowIndicator: true,
       locale: zhcnLocale,
       calendarWeekends: true,
-      calendarEvents: [{ title: 'Event Now', start: new Date() }],
+      calendarEvents: [{ title: 'Event Now', start: '2018-06-05' }],
       events: [],
       events1: [
         {
@@ -209,11 +209,28 @@ export default {
 
     // 上一周
     previouWeek() {
-
+      const calendarApi = this.$refs.Calendar.getApi()
+      calendarApi.gotoDate('2018-07-01')
     },
     // 下一周
     nextWeek() {
 
+    },
+    // 刷新refresh
+    refresh() {
+      // console.log(this.$refs.Calendar)
+      this.events1.push({
+        className: 'rest',
+        title: 'event with URL',
+        start: '2019-06-07 08:00',
+        // rendering: 'background'
+        color: '#f5d31e'
+      })
+
+      this.tableOne()
+      this.timeLine()
+      this.adjustCss()
+      // this.$refs.Calendar.render()
     },
     eventMouseEnter(e) {
       console.log(e, 90)

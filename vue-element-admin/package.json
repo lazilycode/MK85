@@ -78,6 +78,11 @@
     "xlsx": "0.14.1"
   },
   "devDependencies": {
+    "@fullcalendar/core": "^4.1.0",
+    "@fullcalendar/daygrid": "^4.1.0",
+    "@fullcalendar/interaction": "^4.1.0",
+    "@fullcalendar/timegrid": "^4.1.0",
+    "@fullcalendar/vue": "^4.1.0",
     "@babel/core": "7.0.0",
     "@babel/register": "7.0.0",
     "@vue/cli-plugin-babel": "3.5.3",
