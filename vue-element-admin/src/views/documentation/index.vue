@@ -44,10 +44,18 @@ export default {
         const week = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
         const nowweek = date.getDay()
         let nowDay = date.getDate()
-        nowDay = nowDay < 10 ? ('0' + nowDay) : nowDay
+        nowDay = nowDay < 10 ? '0' + nowDay : nowDay
         let newMon = date.getMonth() + 1
-        newMon = newMon < 10 ? ('0' + newMon) : newMon
-        return '<div><p><span>' + week[nowweek] + '</span></p><p><span>' + newMon + '月' + nowDay + '</span></p></div>'
+        newMon = newMon < 10 ? '0' + newMon : newMon
+        return (
+          '<div><p><span>' +
+          week[nowweek] +
+          '</span></p><p><span>' +
+          newMon +
+          '月' +
+          nowDay +
+          '</span></p></div>'
+        )
       },
       businessHours: {
         daysOfWeek: [], // Monday, Tuesday, Wednesday
@@ -77,7 +85,8 @@ export default {
           // color: '#fcf8e3',
           className: 'blue'
         },
-        { className: 'green',
+        {
+          className: 'green',
           title: 'simple event',
           start: '2019-06-04 08:00'
         },
@@ -91,7 +100,6 @@ export default {
         {
           title: 'event with URL',
           start: '2019-06-04'
-
         }
       ]
     }
@@ -108,7 +116,8 @@ export default {
   methods: {
     tableOne() {
       const tableone = this.domChange('.fc-axis.fc-widget-header')[0]
-      tableone.innerHTML = '<div class="out"> <b>类别</b><em>姓名</em></div>'
+      tableone.innerHTML =
+        '<span class="w100"><span class="s1">姓名</span><p></p><span class="s2">月份</span></span>>'
       console.log()
     },
     // 表头时间格式调整
@@ -117,10 +126,18 @@ export default {
       const week = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
       const nowweek = date.getDay()
       let nowDay = date.getDate()
-      nowDay = nowDay < 10 ? ('0' + nowDay) : nowDay
+      nowDay = nowDay < 10 ? '0' + nowDay : nowDay
       let newMon = date.getMonth() + 1
-      newMon = newMon < 10 ? ('0' + newMon) : newMon
-      return '<div><p><span>' + week[nowweek] + '</span></p><p><span>' + newMon + '月' + nowDay + '</span></p></div>'
+      newMon = newMon < 10 ? '0' + newMon : newMon
+      return (
+        '<div><p><span>' +
+        week[nowweek] +
+        '</span></p><p><span>' +
+        newMon +
+        '月' +
+        nowDay +
+        '</span></p></div>'
+      )
     },
     // 选着择dom
     domChange(e) {
@@ -130,19 +147,25 @@ export default {
     timeLine() {
       const eleArr = this.domChange('.fc-axis.fc-time.fc-widget-content')
       eleArr.forEach((item, index) => {
-        const startTiems = item.parentNode.getAttribute('data-time').substring(0, 5)
+        const startTiems = item.parentNode
+          .getAttribute('data-time')
+          .substring(0, 5)
         if (index + 1 !== eleArr.length) {
-          const endTiems = eleArr[index + 1].parentNode.getAttribute('data-time').substring(0, 5)
+          const endTiems = eleArr[index + 1].parentNode
+            .getAttribute('data-time')
+            .substring(0, 5)
           item.innerHTML = '<span>' + startTiems + '-' + endTiems + '</span>'
         } else {
-          item.innerHTML = '<span>' + startTiems + '-' + this.endTime + '</span>'
+          item.innerHTML =
+            '<span>' + startTiems + '-' + this.endTime + '</span>'
         }
       })
     },
 
     // 根据不同的className 调整css
     adjustCss() {
-      console.log(this.domChange('.rest')[0].innerHTML = 'kkk')
+      const text = this.domChange('.rest')[0].text
+      console.log((this.domChange('.rest')[0].innerHTML = text))
     },
 
     eventMouseEnter(e) {
@@ -178,46 +201,46 @@ export default {
 @import "~@fullcalendar/timegrid/main.css";
 
 thead.fc-head {
-    background-color: red;
+  background-color: red;
 }
 
 #headTitle {
-    border-width: 0px;
-    position: absolute;
-    left: 2px;
-    top: 2px;
-    width: 138px;
-    word-wrap: break-word;
+  border-width: 0px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 138px;
+  word-wrap: break-word;
 }
-.fc .fc-axis{
+.fc .fc-axis {
   padding: 0 17px;
 }
 
 /*模拟对角线*/
-.out {
-  left: -20px;
-    border-top: 73px #D6D3D6 solid;
-    width: 0px;
-    height: 0px;
-    border-left: 116px #BDBABD solid;
-    position: relative;
+.w100 {
+  width: 100px;
+  position: relative;
 }
-
-b {
-  font-style: normal;
-  display: block;
+.w100 span.s1 {
   position: absolute;
-  top: -40px;
-  left: -40px;
-  width: 35px;
+  left: 10px;
+  top: 23px;
 }
-em {
-  font-style: normal;
-  display: block;
+.w100 span.s2 {
   position: absolute;
-  top: -25px;
-  left: -70px;
-  width: 55x;
+  right: 10px;
+  top: 5px;
+}
+.w100 p {
+  width: 130px;
+  height: 1px;
+  background: red;
+  -webkit-transform: rotate(22deg);
+  -moz-transform: rotate(22deg);
+  transform: rotate(22deg);
+  position: absolute;
+  left: -5px;
+  top: 24px;
 }
 .demo-app {
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
