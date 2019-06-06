@@ -1,6 +1,7 @@
 <template>
   <div class="demo-app">
     <FullCalendar
+      v-if="hide"
       ref="fullCalendar"
       class="demo-app-calendar"
       default-view="timeGridWeek"
@@ -9,7 +10,7 @@
         center: 'title',
         right: 'timeGridWeek'
       }"
-      :height="650"
+      :height="667"
       :min-time="startTime"
       :max-time="endTime"
       :all-day-slot="alldayslot"
@@ -39,6 +40,7 @@ export default {
   },
   data: function() {
     return {
+      hide: false,
       columnHeaderText: function(e) {
         const date = new Date(e)
         const week = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
@@ -48,13 +50,13 @@ export default {
         let newMon = date.getMonth() + 1
         newMon = newMon < 10 ? '0' + newMon : newMon
         return (
-          '<div><p><span>' +
+          '<div class="head"><div class="headRow"><span>' +
           week[nowweek] +
-          '</span></p><p><span>' +
+          '</span></div><div class="headRow"><span>' +
           newMon +
           '月' +
           nowDay +
-          '</span></p></div>'
+          '</span></div></div>'
         )
       },
       businessHours: {
@@ -62,8 +64,8 @@ export default {
         startTime: '06:00',
         endTime: '24:00'
       },
-      startTime: '06:00',
-      endTime: '24:00',
+      startTime: '08:00',
+      endTime: '21:00',
       calendarPlugins: [
         // plugins must be defined in the JS
         dayGridPlugin,
@@ -105,20 +107,21 @@ export default {
     }
   },
   created() {
+    // console.log(444)
+    this.hide = true
     this.events = this.events1
   },
   mounted() {
     this.tableOne()
     this.timeLine()
     this.adjustCss()
+
     // document.querySelectorAll('.fc-time')
   },
   methods: {
     tableOne() {
       const tableone = this.domChange('.fc-axis.fc-widget-header')[0]
-      tableone.innerHTML =
-        '<span class="w100"><span class="s1">姓名</span><p></p><span class="s2">月份</span></span>>'
-      console.log()
+      tableone.innerHTML = '<span class="w100"><span class="s1">姓名</span><p></p><span class="s2">月份</span></span>'
     },
     // 表头时间格式调整
     headTitle(e) {
@@ -201,7 +204,8 @@ export default {
 @import "~@fullcalendar/timegrid/main.css";
 
 thead.fc-head {
-  background-color: red;
+  height:39px;
+  background-color: #409eff;
 }
 
 #headTitle {
@@ -213,7 +217,14 @@ thead.fc-head {
   word-wrap: break-word;
 }
 .fc .fc-axis {
-  padding: 0 17px;
+  padding: 0 41px;
+}
+
+.head .headRow {
+    padding: 2px 0px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 400;
 }
 
 /*模拟对角线*/
@@ -232,15 +243,14 @@ thead.fc-head {
   top: 5px;
 }
 .w100 p {
-  width: 130px;
-  height: 1px;
-  background: red;
-  -webkit-transform: rotate(22deg);
-  -moz-transform: rotate(22deg);
-  transform: rotate(22deg);
-  position: absolute;
-  left: -5px;
-  top: 24px;
+  width: 147px;
+    height: 1px;
+    background: red;
+    -webkit-transform: rotate(22deg);
+    transform: rotate(13deg);
+    position: absolute;
+    left: -5px;
+    top: 3px;
 }
 .demo-app {
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
