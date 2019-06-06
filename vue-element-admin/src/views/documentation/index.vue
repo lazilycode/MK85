@@ -61,6 +61,24 @@ import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import zhcnLocale from '@fullcalendar/core/locales/zh-cn'
 
+function timeLines() {
+  const eleArr = document.querySelectorAll('.fc-axis.fc-time.fc-widget-content')
+  eleArr.forEach((item, index) => {
+    const startTiems = item.parentNode
+      .getAttribute('data-time')
+      .substring(0, 5)
+    if (index + 1 !== eleArr.length) {
+      const endTiems = eleArr[index + 1].parentNode
+        .getAttribute('data-time')
+        .substring(0, 5)
+      item.innerHTML = '<span>' + startTiems + '-' + endTiems + '</span>'
+    } else {
+      item.innerHTML =
+            '<span>' + startTiems + '-' + this.endTime + '</span>'
+    }
+  })
+}
+
 export default {
   components: {
     FullCalendar // make the <FullCalendar> tag available
@@ -78,6 +96,8 @@ export default {
         nowDay = nowDay < 10 ? '0' + nowDay : nowDay
         let newMon = date.getMonth() + 1
         newMon = newMon < 10 ? '0' + newMon : newMon
+        console.log(90)
+        timeLines()
         return (
           '<div class="head"><div class="headRow"><span>' +
           week[nowweek] +
@@ -155,32 +175,13 @@ export default {
     // document.querySelectorAll('.fc-time')
   },
   methods: {
-    tableOne() {
-      const tableone = this.domChange('.fc-axis.fc-widget-header')[0]
-      tableone.innerHTML = '<span class="w100"><span class="s1">姓名</span><p></p><span class="s2">月份</span></span>'
-    },
-    // 表头时间格式调整
-    headTitle(e) {
-      const date = new Date(e)
-      const week = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
-      const nowweek = date.getDay()
-      let nowDay = date.getDate()
-      nowDay = nowDay < 10 ? '0' + nowDay : nowDay
-      let newMon = date.getMonth() + 1
-      newMon = newMon < 10 ? '0' + newMon : newMon
-      return (
-        '<div><p><span>' +
-        week[nowweek] +
-        '</span></p><p><span>' +
-        newMon +
-        '月' +
-        nowDay +
-        '</span></p></div>'
-      )
-    },
     // 选着择dom
     domChange(e) {
       return document.querySelectorAll(e)
+    },
+    tableOne() {
+      const tableone = this.domChange('.fc-axis.fc-widget-header')[0]
+      tableone.innerHTML = '<span class="w100"><span class="s1">姓名</span><p></p><span class="s2">月份</span></span>'
     },
     // 操作dom 时间格式化
     timeLine() {
@@ -203,14 +204,16 @@ export default {
 
     // 根据不同的className 调整css
     adjustCss() {
-      const text = this.domChange('.rest')[0].text
-      console.log((this.domChange('.rest')[0].innerHTML = text))
+      this.domChange('.rest')[0].innerHTML = this.domChange('.rest')[0].text
     },
 
     // 上一周
     previouWeek() {
       const calendarApi = this.$refs.Calendar.getApi()
       calendarApi.gotoDate('2018-07-01')
+      this.tableOne()
+      this.timeLine()
+      this.adjustCss()
     },
     // 下一周
     nextWeek() {
