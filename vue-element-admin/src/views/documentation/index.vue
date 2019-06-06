@@ -37,7 +37,7 @@
         right: ''
       }"
       :event-render="eventRender"
-      :height="667"
+
       :min-time="startTime"
       :max-time="endTime"
       :all-day-slot="alldayslot"
@@ -108,6 +108,7 @@ export default {
           '</span></div></div>'
         )
       },
+
       businessHours: {
         daysOfWeek: [], // Monday, Tuesday, Wednesday
         startTime: '06:00',
@@ -169,8 +170,6 @@ export default {
     //   this.hide = true
     // })
     this.tableOne()
-    this.timeLine()
-    this.adjustCss()
 
     // document.querySelectorAll('.fc-time')
   },
@@ -182,6 +181,7 @@ export default {
     tableOne() {
       const tableone = this.domChange('.fc-axis.fc-widget-header')[0]
       tableone.innerHTML = '<span class="w100"><span class="s1">姓名</span><p></p><span class="s2">月份</span></span>'
+      this.timeLine()
     },
     // 操作dom 时间格式化
     timeLine() {
@@ -200,6 +200,7 @@ export default {
             '<span>' + startTiems + '-' + this.endTime + '</span>'
         }
       })
+      this.adjustCss()
     },
 
     // 根据不同的className 调整css
@@ -212,8 +213,6 @@ export default {
       const calendarApi = this.$refs.Calendar.getApi()
       calendarApi.gotoDate('2018-07-01')
       this.tableOne()
-      this.timeLine()
-      this.adjustCss()
     },
     // 下一周
     nextWeek() {
@@ -231,8 +230,6 @@ export default {
       })
 
       this.tableOne()
-      this.timeLine()
-      this.adjustCss()
       // this.$refs.Calendar.render()
     },
     eventMouseEnter(e) {
