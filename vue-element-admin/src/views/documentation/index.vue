@@ -233,21 +233,21 @@ thead.fc-head {
   position: relative;
 }
 .w100 span.s1 {
-  position: absolute;
-  left: 10px;
-  top: 23px;
+ position: absolute;
+    left: 10px;
+    top: 13px;
 }
 .w100 span.s2 {
   position: absolute;
-  right: 10px;
-  top: 5px;
+    right: -130px;
+    top: 5px;
 }
 .w100 p {
-  width: 147px;
+  width: 164px;
     height: 1px;
     background: red;
     -webkit-transform: rotate(22deg);
-    transform: rotate(13deg);
+    transform: rotate(12deg);
     position: absolute;
     left: -5px;
     top: 3px;
