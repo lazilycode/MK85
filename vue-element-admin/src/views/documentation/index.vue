@@ -1,15 +1,42 @@
 <template>
   <div class="demo-app">
+
+    <el-row :gutter="20">
+      <el-col :span="16">
+        <el-button size="small">默认按钮</el-button>
+        <el-button type="primary" size="small">主要按钮</el-button>
+        <el-button type="success" size="small">成功按钮</el-button>
+        <span v-for="(item,index) in 3" :key="index">
+          <button class="box" />
+          <span>{{ item }}</span>
+        </span>
+      </el-col>
+
+      <el-col :span="8">
+        <div>
+          <i class="el-icon-arrow-left" @click="previouWeek" />
+          <el-date-picker
+            v-model="value1"
+            type="week"
+            format="yyyy 第 WW 周"
+            placeholder="选择周"
+          />
+          <i class="el-icon-arrow-right" @click="nextWeek" />
+        </div>
+
+      </el-col>
+    </el-row>
+
     <FullCalendar
-      v-if="hide"
       ref="fullCalendar"
       class="demo-app-calendar"
       default-view="timeGridWeek"
       :header="{
-        left: 'prev,next today',
-        center: 'title',
-        right: 'timeGridWeek'
+        left: ' ',
+        center: '',
+        right: ''
       }"
+      :event-render="eventRender"
       :height="667"
       :min-time="startTime"
       :max-time="endTime"
@@ -41,6 +68,8 @@ export default {
   data: function() {
     return {
       hide: false,
+      // 周的选择器
+      value1: '',
       columnHeaderText: function(e) {
         const date = new Date(e)
         const week = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
@@ -72,6 +101,9 @@ export default {
         timeGridPlugin,
         interactionPlugin // needed for dateClick
       ],
+      eventRender: function(info) {
+        console.log(info)
+      },
       alldayslot: false,
       defaultView: 'timeGridWeek',
       nowIndicator: true,
@@ -108,10 +140,14 @@ export default {
   },
   created() {
     // console.log(444)
-    this.hide = true
+
     this.events = this.events1
   },
   mounted() {
+    // this.hide = false
+    // this.$nextTick(() => {
+    //   this.hide = true
+    // })
     this.tableOne()
     this.timeLine()
     this.adjustCss()
@@ -171,6 +207,14 @@ export default {
       console.log((this.domChange('.rest')[0].innerHTML = text))
     },
 
+    // 上一周
+    previouWeek() {
+
+    },
+    // 下一周
+    nextWeek() {
+
+    },
     eventMouseEnter(e) {
       console.log(e, 90)
     },
@@ -225,6 +269,10 @@ thead.fc-head {
     color: #ffffff;
     font-size: 13px;
     font-weight: 400;
+}
+
+button.box {
+    margin: 0px 10px;
 }
 
 /*模拟对角线*/
