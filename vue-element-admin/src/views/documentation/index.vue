@@ -20,10 +20,11 @@
         </div>
       </el-col>
     </el-row>
-    <Body ref="Bc" />
+    <Body v-if="ish" ref="Bc" :events="isEdit" />
   </div>
 </template>
 <script>
+import axios from 'axios'
 import Body from './body'
 export default {
   components: {
@@ -31,16 +32,63 @@ export default {
   },
   data() {
     return {
+      ish: true,
       date: this.AddDays(new Date(), 0),
-      box: [{ name: '待上课', bgColor: '#00bbff' }, { name: '休息日', bgColor: '#ffffc4' }, { name: '被选择', bgColor: '#00af45' }]
+      box: [{ name: '待上课', bgColor: '#00bbff' }, { name: '休息日', bgColor: '#ffffc4' }, { name: '被选择', bgColor: '#00af45' }],
+      isEdits: [
+        {
+          title: 'simple event',
+          start: '2019-07-05 08:00',
+          // rendering: 'background',
+          // color: '#fcf8e3',
+          className: 'blue'
+        },
+        {
+          className: 'green',
+          title: 'simple event',
+          start: '2019-07-04 08:00'
+        },
+        {
+          className: 'rest',
+          title: 'event with URL',
+          start: '2019-07-06 08:00',
+          // rendering: 'background'
+          color: '#f5d31e'
+        },
+        {
+          className: 'rest',
+          title: 'event with URL',
+          start: '2019-07-07 08:00',
+          end: '2019-07-07 08:30',
+          // rendering: 'background'
+          color: '#f5d31e'
+        }
+      ],
+      isEdit: []
     }
   },
   watch: {
     date: function() {
-      console.log(90)
+      this.$refs.Bc.previouWeek(this.date)
     }
   },
+  created() {
+    this.dataXhr()
+  },
   methods: {
+    dataXhr() {
+      const that = this
+      axios.get('http://111.231.94.121:3000/mock/19/demo/demo')
+        .then(function(response) {
+          that.ish = false
+          that.$nextTick(() => {
+            that.ish = true
+            that.isEdit = response.data
+          })
+
+          console.log(response.data)
+        })
+    },
     // 当前日期加七天
     AddDays(date, days) {
       var nd = new Date(date)

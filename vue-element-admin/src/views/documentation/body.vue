@@ -18,6 +18,7 @@
       :all-day-slot="alldayslot"
       :now-indicator="nowIndicator"
       :locale="locale"
+      :business-hours="businessHours"
       :plugins="calendarPlugins"
       :weekends="calendarWeekends"
       :events="events"
@@ -42,8 +43,15 @@ export default {
   components: {
     FullCalendar // make the <FullCalendar> tag available
   },
+  props: {
+    events: {
+      type: Array,
+      default: Array
+    }
+  },
   data: function() {
     return {
+      arr: [],
       hide: true,
       // 周的选择器
       value1: '',
@@ -68,7 +76,7 @@ export default {
         )
       },
       businessHours: {
-        daysOfWeek: [], // Monday, Tuesday, Wednesday
+        daysOfWeek: [1, 2, 3, 4, 5, 6], // Monday, Tuesday, Wednesday
         startTime: '06:00',
         endTime: '24:00'
       },
@@ -83,21 +91,21 @@ export default {
 
       eventRender: function(e, t) {
         console.log(e, t)
-        const eleArr = document.querySelectorAll('.fc-axis.fc-time.fc-widget-content')
-        eleArr.forEach((item, index) => {
-          const startTiems = item.parentNode
-            .getAttribute('data-time')
-            .substring(0, 5)
-          if (index + 1 !== eleArr.length) {
-            const endTiems = eleArr[index + 1].parentNode
-              .getAttribute('data-time')
-              .substring(0, 5)
-            item.innerHTML = '<span>' + startTiems + '-' + endTiems + '</span>'
-          } else {
-            item.innerHTML =
-              '<span>' + startTiems + '-' + this.endTime + '</span>'
-          }
-        })
+        // const eleArr = document.querySelectorAll('.fc-axis.fc-time.fc-widget-content')
+        // eleArr.forEach((item, index) => {
+        //   const startTiems = item.parentNode
+        //     .getAttribute('data-time')
+        //     .substring(0, 5)
+        //   if (index + 1 !== eleArr.length) {
+        //     const endTiems = eleArr[index + 1].parentNode
+        //       .getAttribute('data-time')
+        //       .substring(0, 5)
+        //     item.innerHTML = '<span>' + startTiems + '-' + endTiems + '</span>'
+        //   } else {
+        //     item.innerHTML =
+        //       '<span>' + startTiems + '-' + this.endTime + '</span>'
+        //   }
+        // })
       },
       eventTimeFormat: { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' },
       alldayslot: false,
@@ -105,54 +113,34 @@ export default {
       nowIndicator: true,
       nowTime: new Date(),
       locale: zhcnLocale,
-      calendarWeekends: true,
+      calendarWeekends: true
 
-      events: [],
-      events1: [
-        {
-          title: 'simple event',
-          start: '2019-07-05 08:00',
-          // rendering: 'background',
-          // color: '#fcf8e3',
-          className: 'blue'
-        },
-        {
-          className: 'green',
-          title: 'simple event',
-          start: '2019-07-04 08:00'
-        },
-        {
-          className: 'rest',
-          title: 'event with URL',
-          start: '2019-07-06 08:00',
-          // rendering: 'background'
-          color: '#f5d31e'
-        },
-        {
-          title: 'event with URL',
-          start: '2019-07-04'
-        }
-      ]
     }
   },
-  created() {
-    // console.log(444)
+  computed: {
 
-    this.events = this.events1
+  },
+  created() {
+    // this.dataXhr()
+    // console.log(444)
   },
   mounted() {
     // this.hide = false
-    // this.$nextTick(() => {
-    //   this.hide = true
+    console.log(this.domAll(1), '---')
+    // const calendarApi = this.$refs.Calendar.getApi()
+    // calendarApi.render()
+    // this.arr.map(item => {
+    //   this.events.push(item)
     // })
-    this.domAll()
 
     // document.querySelectorAll('.fc-time')
   },
   methods: {
-    domAll() {
+
+    domAll(e) {
       this.tableOne()
-      this.timeLine()
+      this.arr = this.timeLine()
+      console.log(this.arr)
       this.adjustCss()
     },
     tableOne() {
@@ -197,21 +185,25 @@ export default {
     },
     // 操作dom 时间格式化
     timeLine() {
+      var arr = []
       const eleArr = this.domChange('td.fc-axis.fc-time.fc-widget-content')
       eleArr.forEach((item, index) => {
         const startTiems = item.parentNode
           .getAttribute('data-time')
           .substring(0, 5)
         if (index + 1 !== eleArr.length) {
+          arr.push({ className: 'rest', start: '2019-07-07' + ' ' + startTiems, end: '2019-07-07' + ' ' + endTiems })
           const endTiems = eleArr[index + 1].parentNode
             .getAttribute('data-time')
             .substring(0, 5)
           item.innerHTML = '<span>' + startTiems + '-' + endTiems + '</span>'
         } else {
+          arr.push({ className: 'rest', start: '2019-07-07' + ' ' + startTiems, end: '2019-07-07' + ' ' + this.endTiems })
           item.innerHTML =
             '<span>' + startTiems + '-' + this.endTime + '</span>'
         }
       })
+      return arr
     },
 
     // 根据不同的className 调整css
@@ -224,13 +216,17 @@ export default {
     previouWeek(e) {
       const calendarApi = this.$refs.Calendar.getApi()
       calendarApi.gotoDate(e)
-      this.domAll()
+      this.domAll(0)
     },
     // 下一周
     nextWeek(e) {
       const calendarApi = this.$refs.Calendar.getApi()
       calendarApi.gotoDate(e)
-      this.domAll()
+      this.domAll(0)
+      // console.log(this.arr, '====')
+      // this.arr.map((item) => {
+      //   this.events.push(item)
+      // })
     },
     // 刷新refresh
     refresh() {
@@ -357,5 +353,9 @@ button.box {
 .demo-app-calendar {
   margin: 0 auto;
   // max-width: 1100px;
+}
+
+.fc-nonbusiness {
+    background: #ffd5005e;
 }
 </style>
