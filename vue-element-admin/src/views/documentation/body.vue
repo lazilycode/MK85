@@ -1,6 +1,7 @@
 <template>
   <div class="demo-app">
     <FullCalendar
+      v-if="hide"
       ref="Calendar"
       class="demo-app-calendar"
       default-view="timeGridWeek"
@@ -9,8 +10,9 @@
         center: '',
         right: ''
       }"
+      :event-time-format="eventTimeFormat"
       :event-render="eventRender"
-      :height="667"
+      :height="631"
       :min-time="startTime"
       :max-time="endTime"
       :all-day-slot="alldayslot"
@@ -19,6 +21,7 @@
       :plugins="calendarPlugins"
       :weekends="calendarWeekends"
       :events="events"
+      :now="nowTime"
       :column-header-html="columnHeaderText"
       @dateClick="handleDateClick"
       @eventMouseEnter="eventMouseEnter"
@@ -41,14 +44,16 @@ export default {
   },
   data: function() {
     return {
-      hide: false,
+      hide: true,
       // 周的选择器
       value1: '',
       columnHeaderText: function(e) {
         const date = new Date(e)
+
         const week = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
         const nowweek = date.getDay()
         let nowDay = date.getDate()
+        console.log(new Date(e).getDate(e))
         nowDay = nowDay < 10 ? '0' + nowDay : nowDay
         let newMon = date.getMonth() + 1
         newMon = newMon < 10 ? '0' + newMon : newMon
@@ -77,34 +82,36 @@ export default {
       ],
 
       eventRender: function(e, t) {
-        // const eleArr = document.querySelectorAll('.fc-axis.fc-time.fc-widget-content')
-        // eleArr.forEach((item, index) => {
-        //   const startTiems = item.parentNode
-        //     .getAttribute('data-time')
-        //     .substring(0, 5)
-        //   if (index + 1 !== eleArr.length) {
-        //     const endTiems = eleArr[index + 1].parentNode
-        //       .getAttribute('data-time')
-        //       .substring(0, 5)
-        //     item.innerHTML = '<span>' + startTiems + '-' + endTiems + '</span>'
-        //   } else {
-        //     item.innerHTML =
-        //       '<span>' + startTiems + '-' + this.endTime + '</span>'
-        //   }
-        // })
+        console.log(e, t)
+        const eleArr = document.querySelectorAll('.fc-axis.fc-time.fc-widget-content')
+        eleArr.forEach((item, index) => {
+          const startTiems = item.parentNode
+            .getAttribute('data-time')
+            .substring(0, 5)
+          if (index + 1 !== eleArr.length) {
+            const endTiems = eleArr[index + 1].parentNode
+              .getAttribute('data-time')
+              .substring(0, 5)
+            item.innerHTML = '<span>' + startTiems + '-' + endTiems + '</span>'
+          } else {
+            item.innerHTML =
+              '<span>' + startTiems + '-' + this.endTime + '</span>'
+          }
+        })
       },
-
+      eventTimeFormat: { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' },
       alldayslot: false,
       defaultView: 'timeGridWeek',
       nowIndicator: true,
+      nowTime: new Date(),
       locale: zhcnLocale,
       calendarWeekends: true,
-      calendarEvents: [{ title: 'Event Now', start: '2018-06-05' }],
+
       events: [],
       events1: [
         {
           title: 'simple event',
-          start: '2019-06-05 08:00',
+          start: '2019-07-05 08:00',
           // rendering: 'background',
           // color: '#fcf8e3',
           className: 'blue'
@@ -112,18 +119,18 @@ export default {
         {
           className: 'green',
           title: 'simple event',
-          start: '2019-06-04 08:00'
+          start: '2019-07-04 08:00'
         },
         {
           className: 'rest',
           title: 'event with URL',
-          start: '2019-06-06 08:00',
+          start: '2019-07-06 08:00',
           // rendering: 'background'
           color: '#f5d31e'
         },
         {
           title: 'event with URL',
-          start: '2019-06-04'
+          start: '2019-07-04'
         }
       ]
     }
@@ -151,6 +158,19 @@ export default {
     tableOne() {
       const tableone = this.domChange('.fc-axis.fc-widget-header')[0]
       tableone.innerHTML = '<span class="w100"><span class="s1">姓名</span><p></p><span class="s2">月份</span></span>'
+      const line = this.domChange('.w100 p')[0].style
+      if (tableone.style.width === '59px') {
+        line.width = '147px'
+      } if (tableone.style.width === '102px') {
+        line.width = '191px'
+        line.style = 'transform: rotate(11deg)'
+      } else {
+        line.style = '190px;'
+        line.style = 'transform: rotate(11deg)'
+      } if (tableone.style.width === '76px') {
+        line.style = '165px;'
+        line.style = 'transform: rotate(11deg)'
+      }
     },
     // 表头时间格式调整
     headTitle(e) {
@@ -177,7 +197,7 @@ export default {
     },
     // 操作dom 时间格式化
     timeLine() {
-      const eleArr = this.domChange('.fc-axis.fc-time.fc-widget-content')
+      const eleArr = this.domChange('td.fc-axis.fc-time.fc-widget-content')
       eleArr.forEach((item, index) => {
         const startTiems = item.parentNode
           .getAttribute('data-time')
@@ -201,14 +221,16 @@ export default {
     },
 
     // 上一周
-    previouWeek() {
+    previouWeek(e) {
       const calendarApi = this.$refs.Calendar.getApi()
-      calendarApi.gotoDate('2018-07-01')
+      calendarApi.gotoDate(e)
       this.domAll()
     },
     // 下一周
-    nextWeek() {
-
+    nextWeek(e) {
+      const calendarApi = this.$refs.Calendar.getApi()
+      calendarApi.gotoDate(e)
+      this.domAll()
     },
     // 刷新refresh
     refresh() {
@@ -273,6 +295,10 @@ thead.fc-head {
 }
 .fc .fc-axis {
   padding: 0 41px;
+}
+.fc-ltr .fc-axis{
+  width: 76px;
+  text-align: left
 }
 
 .head .headRow {
