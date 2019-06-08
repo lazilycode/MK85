@@ -1,5 +1,6 @@
 <template>
   <div class="demo-app">
+    {{ events }}
     <FullCalendar
       v-if="hide"
       ref="Calendar"
@@ -22,7 +23,7 @@
       :plugins="calendarPlugins"
       :weekends="calendarWeekends"
       :events="events"
-      :now="nowTime"
+      :now="nowTimes"
       :column-header-html="columnHeaderText"
       @dateClick="handleDateClick"
       @eventMouseEnter="eventMouseEnter"
@@ -57,6 +58,7 @@ export default {
     return {
       arr: [],
       hide: true,
+      nowTimes: new Date(),
       // 周的选择器
       value1: '',
       columnHeaderText: function(e) {
@@ -185,17 +187,8 @@ export default {
       // const text = this.domChange('.rest')[0].text
       // console.log((this.domChange('.rest')[0].innerHTML = text))
     },
-
-    // 上一周
-    previouWeek(e) {
-      this.nowTime = e
-      const calendarApi = this.$refs.Calendar.getApi()
-      calendarApi.gotoDate(e)
-      this.domAll(0)
-    },
-    // 下一周
-    nextWeek(e) {
-      this.nowTime = e
+    changeWeek(e) {
+      // this.nowTimes = this.nowTime
       const calendarApi = this.$refs.Calendar.getApi()
       calendarApi.gotoDate(e)
       this.domAll(0)

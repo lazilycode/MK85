@@ -69,7 +69,7 @@ export default {
   },
   watch: {
     date: function() {
-      this.$refs.Bc.previouWeek(this.date)
+      this.$refs.Bc.changeWeek(this.date)
     }
   },
   created() {
@@ -78,7 +78,7 @@ export default {
   methods: {
     dataXhr() {
       const that = this
-      axios.get('http://111.231.94.121:3000/mock/19/demo/demo')
+      axios.get('http://111.231.94.121:3000/mock/19/demo/demo_1559952423271')
         .then(function(response) {
           that.ish = false
           that.$nextTick(() => {
@@ -120,14 +120,14 @@ export default {
     // 上一周
     previouWeek() {
       this.date = this.AddDays(this.date, -7)
-      this.$refs.Bc.previouWeek(this.date)
+      this.$refs.Bc.changeWeek(this.date)
     },
 
     // 下一周
     nextWeek() {
-      this.dataXhrs()
+      // this.dataXhrs()
       this.date = this.AddDays(this.date, 7)
-      this.$refs.Bc.previouWeek(this.date)
+      this.$refs.Bc.changeWeek(this.date)
     },
 
     // 刷新
