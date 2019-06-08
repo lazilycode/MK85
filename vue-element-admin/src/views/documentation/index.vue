@@ -69,7 +69,9 @@ export default {
   },
   watch: {
     date: function() {
-      this.dataXhrs('http://111.231.94.121:3000/mock/19/demo/demo')
+      console.log(this.subtractOneDay(), 9900)
+
+      // this.dataXhrs('http://111.231.94.121:3000/mock/19/demo/demo')
       this.$refs.Bc.changeWeek(this.date)
     }
   },
@@ -101,6 +103,14 @@ export default {
           that.isEdit = response.data
           console.log(response.data)
         })
+    },
+    // 日期处理
+    subtractOneDay() {
+      const ze = new RegExp('/', 'g')
+      let dateTime = new Date(this.date)
+      dateTime = dateTime.setDate(dateTime.getDate() - 1)
+      const yymmdd = new Date(dateTime).toLocaleDateString().replace(ze, '-')
+      return yymmdd
     },
 
     // 当前日期加七天
