@@ -20,7 +20,7 @@
         </div>
       </el-col>
     </el-row>
-    <Body v-if="ish" ref="Bc" :events="isEdit" />
+    <Body v-if="ish" ref="Bc" :events="isEdit" :now-time="date" />
   </div>
 </template>
 <script>
@@ -83,12 +83,25 @@ export default {
           that.ish = false
           that.$nextTick(() => {
             that.ish = true
-            that.isEdit = response.data
           })
-
+          that.isEdit = response.data
           console.log(response.data)
         })
     },
+
+    dataXhrs() {
+      const that = this
+      axios.get('http://111.231.94.121:3000/mock/19/demo/demo_1559952423271')
+        .then(function(response) {
+          that.ish = false
+          that.$nextTick(() => {
+            that.ish = true
+          })
+          that.isEdit = response.data
+          console.log(response.data)
+        })
+    },
+
     // 当前日期加七天
     AddDays(date, days) {
       var nd = new Date(date)
@@ -112,6 +125,7 @@ export default {
 
     // 下一周
     nextWeek() {
+      this.dataXhrs()
       this.date = this.AddDays(this.date, 7)
       this.$refs.Bc.previouWeek(this.date)
     },

@@ -41,12 +41,16 @@ import zhcnLocale from '@fullcalendar/core/locales/zh-cn'
 
 export default {
   components: {
-    FullCalendar // make the <FullCalendar> tag available
+    FullCalendar
   },
   props: {
     events: {
       type: Array,
       default: Array
+    },
+    nowTime: {
+      type: String,
+      default: String
     }
   },
   data: function() {
@@ -76,42 +80,24 @@ export default {
         )
       },
       businessHours: {
-        daysOfWeek: [1, 2, 3, 4, 5, 6], // Monday, Tuesday, Wednesday
+        daysOfWeek: [1, 2, 3, 4, 5, 6],
         startTime: '06:00',
         endTime: '24:00'
       },
       startTime: '08:00',
       endTime: '21:00',
       calendarPlugins: [
-        // plugins must be defined in the JS
         dayGridPlugin,
         timeGridPlugin,
-        interactionPlugin // needed for dateClick
+        interactionPlugin
       ],
 
       eventRender: function(e, t) {
-        console.log(e, t)
-        // const eleArr = document.querySelectorAll('.fc-axis.fc-time.fc-widget-content')
-        // eleArr.forEach((item, index) => {
-        //   const startTiems = item.parentNode
-        //     .getAttribute('data-time')
-        //     .substring(0, 5)
-        //   if (index + 1 !== eleArr.length) {
-        //     const endTiems = eleArr[index + 1].parentNode
-        //       .getAttribute('data-time')
-        //       .substring(0, 5)
-        //     item.innerHTML = '<span>' + startTiems + '-' + endTiems + '</span>'
-        //   } else {
-        //     item.innerHTML =
-        //       '<span>' + startTiems + '-' + this.endTime + '</span>'
-        //   }
-        // })
       },
       eventTimeFormat: { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' },
       alldayslot: false,
       defaultView: 'timeGridWeek',
       nowIndicator: true,
-      nowTime: new Date(),
       locale: zhcnLocale,
       calendarWeekends: true
 
@@ -121,26 +107,15 @@ export default {
 
   },
   created() {
-    // this.dataXhr()
-    // console.log(444)
   },
   mounted() {
-    // this.hide = false
-    console.log(this.domAll(1), '---')
-    // const calendarApi = this.$refs.Calendar.getApi()
-    // calendarApi.render()
-    // this.arr.map(item => {
-    //   this.events.push(item)
-    // })
-
-    // document.querySelectorAll('.fc-time')
+    this.domAll()
   },
   methods: {
 
-    domAll(e) {
+    domAll() {
       this.tableOne()
-      this.arr = this.timeLine()
-      console.log(this.arr)
+      this.timeLine()
       this.adjustCss()
     },
     tableOne() {
@@ -185,25 +160,24 @@ export default {
     },
     // 操作dom 时间格式化
     timeLine() {
-      var arr = []
       const eleArr = this.domChange('td.fc-axis.fc-time.fc-widget-content')
       eleArr.forEach((item, index) => {
         const startTiems = item.parentNode
           .getAttribute('data-time')
           .substring(0, 5)
         if (index + 1 !== eleArr.length) {
-          arr.push({ className: 'rest', start: '2019-07-07' + ' ' + startTiems, end: '2019-07-07' + ' ' + endTiems })
+          // arr.push({ className: 'rest', start: '2019-06-09' + ' ' + startTiems, end: '2019-06-09' + ' ' + endTiems })
           const endTiems = eleArr[index + 1].parentNode
             .getAttribute('data-time')
             .substring(0, 5)
           item.innerHTML = '<span>' + startTiems + '-' + endTiems + '</span>'
         } else {
-          arr.push({ className: 'rest', start: '2019-07-07' + ' ' + startTiems, end: '2019-07-07' + ' ' + this.endTiems })
+          // arr.push({ className: 'rest', start: '2019-06-09' + ' ' + startTiems, end: '2019-06-09' + ' ' + this.endTiems })
           item.innerHTML =
             '<span>' + startTiems + '-' + this.endTime + '</span>'
         }
       })
-      return arr
+      // return arr
     },
 
     // 根据不同的className 调整css
@@ -214,53 +188,26 @@ export default {
 
     // 上一周
     previouWeek(e) {
+      this.nowTime = e
       const calendarApi = this.$refs.Calendar.getApi()
       calendarApi.gotoDate(e)
       this.domAll(0)
     },
     // 下一周
     nextWeek(e) {
+      this.nowTime = e
       const calendarApi = this.$refs.Calendar.getApi()
       calendarApi.gotoDate(e)
       this.domAll(0)
-      // console.log(this.arr, '====')
-      // this.arr.map((item) => {
-      //   this.events.push(item)
-      // })
-    },
-    // 刷新refresh
-    refresh() {
-      // console.log(this.$refs.Calendar)
-      this.events1.push({
-        className: 'rest',
-        title: 'event with URL',
-        start: '2019-06-07 08:00',
-        // rendering: 'background'
-        color: '#f5d31e'
-      })
-
-      this.tableOne()
-      this.timeLine()
-      this.adjustCss()
-      // this.$refs.Calendar.render()
     },
     eventMouseEnter(e) {
       console.log(e, 90)
     },
     handleDateClick(info) {
-      alert('Clicked on: ' + info.dateStr)
-      alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY)
-      alert('Current view: ' + info.view.type)
-      // change the day's background color just for fun
-      info.dayEl.style.backgroundColor = 'red'
-      // if (confirm("Would you like to add an event to " + arg.dateStr + " ?")) {
-      //   this.calendarEvents.push({
-      //     // add new event data
-      //     title: "New Event",
-      //     start: arg.date,
-      //     allDay: arg.allDay
-      //   })
-      // }
+      // alert('Clicked on: ' + info.dateStr)
+      // alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY)
+      // alert('Current view: ' + info.view.type)
+      // info.dayEl.style.backgroundColor = 'red'
     },
     select: function(info) {
       alert('selected ' + info.startStr + ' to ' + info.endStr)
@@ -270,8 +217,6 @@ export default {
 </script>
 
 <style lang='scss'>
-// you must include each plugins' css
-// paths prefixed with ~ signify node_modules
 @import "~@fullcalendar/core/main.css";
 @import "~@fullcalendar/daygrid/main.css";
 @import "~@fullcalendar/timegrid/main.css";
