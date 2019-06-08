@@ -124,6 +124,21 @@
       "defaultViewEngine": "",
       "mapping": {}
     },
+    "mysql": {
+      "default": {
+        "database": null,
+        "connectionLimit": 5
+      },
+      "app": true,
+      "agent": false,
+      "client": {
+        "host": "111.231.94.121",
+        "port": "3306",
+        "user": "root",
+        "password": "<String len: 0>",
+        "database": "test"
+      }
+    },
     "env": "local",
     "name": "cnode-api-async",
     "keys": "<String len: 34>",
@@ -139,6 +154,7 @@
       "private": true,
       "dependencies": {
         "egg": "^1.10.1",
+        "egg-mysql": "^3.0.0",
         "egg-validate": "^1.0.0"
       },
       "devDependencies": {
@@ -414,6 +430,17 @@
       "from": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/plugin.js",
       "path": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-validate@1.1.1@egg-validate",
       "version": "1.1.1"
+    },
+    "mysql": {
+      "enable": true,
+      "package": "egg-mysql",
+      "name": "mysql",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/plugin.js",
+      "path": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-mysql@3.0.0@egg-mysql",
+      "version": "3.0.0"
     }
   }
 }

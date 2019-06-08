@@ -15,7 +15,7 @@
         <div>
           {{ date }}
           <i class="el-icon-arrow-left" @click="previouWeek" />
-          <el-date-picker v-model="date" type="week" format="yyyy 第 WW 周" value-format="yyyy-MM-dd" placeholder="选择周" />
+          <el-date-picker v-model="date" :picker-options="{ firstDayOfWeek: 1}" type="week" format="yyyy 第 WW 周" value-format="yyyy-MM-dd" placeholder="选择周" />
           <i class="el-icon-arrow-right" @click="nextWeek" />
         </div>
       </el-col>
@@ -107,7 +107,7 @@ export default {
     AddDays(date, days) {
       var nd = new Date(date)
       nd = nd.valueOf()
-      nd = nd + days * 24 * 60 * 60 * 1000
+      nd = nd + (days * 24 * 60 * 60 - 24 * 60 * 60)
       nd = new Date(nd)
       var y = nd.getFullYear()
       var m = nd.getMonth() + 1

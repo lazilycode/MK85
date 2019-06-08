@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="https://unpkg.com/element-ui@2.9.1/lib/theme-chalk/index.css"">
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui@2.9.1/lib/index.js"></script>
+<div id="app">
+<div class="container">
+  <div class="block">
+    {{ }}
+    <span class="demonstration">周</span>
+    <el-date-picker
+      v-model="value1"
+      type="week"
+      :picker-options="{ firstDayOfWeek: 1}" type="week" format="yyyy 第 WW 周" value-format="yyyy-MM-dd" placeholder="选择周">
+    </el-date-picker>
+  </div>
+  <div class="block">
+    <span class="demonstration">月</span>
+    <el-date-picker
+      v-model="value2"
+      type="month"
+      placeholder="选择月">
+    </el-date-picker>
+  </div>
+</div>
+<div class="container">
+  <div class="block">
+    <span class="demonstration">年</span>
+    <el-date-picker
+      v-model="value3"
+      type="year"
+      placeholder="选择年">
+    </el-date-picker>
+  </div>
+  <div class="block">
+    <span class="demonstration">多个日期</span>
+    <el-date-picker
+      type="dates"
+      v-model="value4"
+      placeholder="选择一个或多个日期">
+    </el-date-picker>
+  </div>
+</div>
+</div>
+<script>
+var Main = {
+    data() {
+      return {
+        value1: '',
+        value2: '',
+        value3: '',
+        value4: ''
+      };
+    },
+    created() {
+
+
+      let ada=  new Date(this.value1).getTime()-24*60*60
+      this.value1= new Date(ada)
+       
+    },
+  };
+
+var Ctor = Vue.extend(Main)
+new Ctor().$mount('#app')
+</script>

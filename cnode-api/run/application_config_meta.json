@@ -1,6 +1,21 @@
 {
   "keys": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
   "middleware": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
+  "mysql": {
+    "client": {
+      "host": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
+      "port": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
+      "user": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
+      "password": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
+      "database": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js"
+    },
+    "app": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
+    "agent": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
+    "default": {
+      "database": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-mysql@3.0.0@egg-mysql/config/config.default.js",
+      "connectionLimit": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-mysql@3.0.0@egg-mysql/config/config.default.js"
+    }
+  },
   "session": {
     "maxAge": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-session@2.2.0@egg-session/config/config.default.js",
     "key": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-session@2.2.0@egg-session/config/config.default.js",
@@ -136,6 +151,7 @@
     "private": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg@1.19.0@egg/config/config.default.js",
     "dependencies": {
       "egg": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg@1.19.0@egg/config/config.default.js",
+      "egg-mysql": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg@1.19.0@egg/config/config.default.js",
       "egg-validate": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg@1.19.0@egg/config/config.default.js"
     },
     "devDependencies": {
