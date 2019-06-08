@@ -15,7 +15,7 @@
         <div>
           {{ date }}
           <i class="el-icon-arrow-left" @click="previouWeek" />
-          <el-date-picker v-model="date" :picker-options="{ firstDayOfWeek: 1}" type="week" format="yyyy 第 WW 周" value-format="yyyy-MM-dd" placeholder="选择周" />
+          <el-date-picker v-model="date" type="week" :picker-options="{ firstDayOfWeek: 1}" format="yyyy 第 WW 周" value-format="yyyy-MM-dd" placeholder="选择周" />
           <i class="el-icon-arrow-right" @click="nextWeek" />
         </div>
       </el-col>
@@ -69,8 +69,6 @@ export default {
   },
   watch: {
     date: function() {
-      console.log(this.subtractOneDay(), 9900)
-
       // this.dataXhrs('http://111.231.94.121:3000/mock/19/demo/demo')
       this.$refs.Bc.changeWeek(this.date)
     }
@@ -92,9 +90,9 @@ export default {
         })
     },
 
-    dataXhrs(url) {
+    dataXhrs() {
       const that = this
-      axios.get(url)
+      axios.get('http://111.231.94.121:3000/mock/19/demo/demo_1559952423271')
         .then(function(response) {
           that.ish = false
           that.$nextTick(() => {
@@ -104,20 +102,12 @@ export default {
           console.log(response.data)
         })
     },
-    // 日期处理
-    subtractOneDay() {
-      const ze = new RegExp('/', 'g')
-      let dateTime = new Date(this.date)
-      dateTime = dateTime.setDate(dateTime.getDate() - 1)
-      const yymmdd = new Date(dateTime).toLocaleDateString().replace(ze, '-')
-      return yymmdd
-    },
 
     // 当前日期加七天
     AddDays(date, days) {
       var nd = new Date(date)
       nd = nd.valueOf()
-      nd = nd + (days * 24 * 60 * 60 - 24 * 60 * 60)
+      nd = nd + days * 24 * 60 * 60 * 1000
       nd = new Date(nd)
       var y = nd.getFullYear()
       var m = nd.getMonth() + 1
@@ -127,7 +117,6 @@ export default {
       var cdate = y + '-' + m + '-' + d
       return cdate
     },
-
     // 上一周
     previouWeek() {
       this.date = this.AddDays(this.date, -7)
