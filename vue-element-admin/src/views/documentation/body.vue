@@ -1,6 +1,6 @@
 <template>
   <div class="demo-app">
-    {{ events }}
+    {{ nowTime }}
     <FullCalendar
       v-if="hide"
       ref="Calendar"
@@ -23,7 +23,7 @@
       :plugins="calendarPlugins"
       :weekends="calendarWeekends"
       :events="events"
-      :now="nowTimes"
+      :now="nowTime"
       :column-header-html="columnHeaderText"
       @dateClick="handleDateClick"
       @eventMouseEnter="eventMouseEnter"
@@ -188,7 +188,6 @@ export default {
       // console.log((this.domChange('.rest')[0].innerHTML = text))
     },
     changeWeek(e) {
-      // this.nowTimes = this.nowTime
       const calendarApi = this.$refs.Calendar.getApi()
       calendarApi.gotoDate(e)
       this.domAll(0)
