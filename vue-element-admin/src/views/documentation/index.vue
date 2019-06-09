@@ -15,7 +15,7 @@
         <div>
           {{ date }}
           <i class="el-icon-arrow-left" @click="previouWeek" />
-          <el-date-picker v-model="date" type="week" :picker-options="{ firstDayOfWeek: 1}" format="yyyy 第 WW 周" value-format="yyyy-MM-dd" placeholder="选择周" />
+          <el-date-picker v-model="date" type="week" :picker-options="{ firstDayOfWeek: 1}" format="yyyy 第 WW 周" value-format="yyyy-MM-dd" placeholder="选择周" @change="changweWeek(date)" />
           <i class="el-icon-arrow-right" @click="nextWeek" />
         </div>
       </el-col>
@@ -68,10 +68,11 @@ export default {
     }
   },
   watch: {
-    date: function() {
-      // this.dataXhrs('http://111.231.94.121:3000/mock/19/demo/demo')
-      this.$refs.Bc.changeWeek(this.date)
-    }
+    // date: function() {
+    //   // console.log(this.subtractOneDay())
+    //   // this.dataXhrs('http://111.231.94.121:3000/mock/19/demo/demo')
+    //   this.$refs.Bc.changeWeek(this.date)
+    // }
   },
   created() {
     // this.dataXhr('http://111.231.94.121:3000/mock/19/demo/demo_1559952423271')
@@ -102,6 +103,14 @@ export default {
           console.log(response.data)
         })
     },
+    // 日期处理
+    subtractOneDay() {
+      const ze = new RegExp('/', 'g')
+      let dateTime = new Date(this.date)
+      dateTime = dateTime.setDate(dateTime.getDate() - 1)
+      const yymmdd = new Date(dateTime).toLocaleDateString().replace(ze, '-')
+      return yymmdd
+    },
 
     // 当前日期加七天
     AddDays(date, days) {
@@ -120,18 +129,28 @@ export default {
     // 上一周
     previouWeek() {
       this.date = this.AddDays(this.date, -7)
+      this.$refs.Bc.changeWeek(this.date)
+      console.log(this.subtractOneDay())
     },
 
     // 下一周
     nextWeek() {
       this.date = this.AddDays(this.date, 7)
+      this.$refs.Bc.changeWeek(this.date)
+      console.log(this.subtractOneDay())
     },
 
     // 刷新
     refresh() {
 
+    },
+
+    // changweWeek
+    changweWeek(e) {
+      this.$refs.Bc.changeWeek(this.date)
+      // console.log(e, 999)
+      console.log(this.subtractOneDay())
     }
-    //
   }
 }
 </script>
