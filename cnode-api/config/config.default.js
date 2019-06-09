@@ -8,6 +8,18 @@ module.exports = appInfo => {
 
   config.middleware = [ 'errorHandler' ];
 
+  config.security = {
+    csrf: {
+      enable: false,
+      ignoreJSON: true
+    },
+    domainWhiteList: ['http://localhost:9527']
+  };
+  config.cors = {
+    origin:'*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+  };
+
   //mysql 
   config.mysql = {
     // 单数据库信息配置

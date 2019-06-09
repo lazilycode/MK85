@@ -76,7 +76,7 @@ export default {
     // }
   },
   created() {
-    // this.dataXhr('http://111.231.94.121:3000/mock/19/demo/demo_1559952423271')
+
   },
   methods: {
     dataXhr(url) {
@@ -146,7 +146,8 @@ export default {
     nextWeek() {
       this.date = this.AddDays(this.date, 7)
       this.$refs.Bc.changeWeek(this.date)
-      console.log(this.chnagDate())
+      this.dataXhr('http://127.0.0.1:7001/user?startTime=' + this.chnagDate())
+      // console.log()
     },
 
     // 刷新

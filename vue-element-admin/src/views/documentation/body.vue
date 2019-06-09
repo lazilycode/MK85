@@ -11,7 +11,7 @@
         center: '',
         right: ''
       }"
-      :event-time-format="eventTimeFormat"
+      time-zone="UTC"
       :event-render="eventRender"
       :height="631"
       :min-time="startTime"
@@ -96,7 +96,7 @@ export default {
 
       eventRender: function(e, t) {
       },
-      eventTimeFormat: { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' },
+      eventTimeFormat: { hour: 'numeric', omitZeroMinute: false, minute: '2-digit', timeZoneName: 'short' },
       alldayslot: false,
       defaultView: 'timeGridWeek',
       nowIndicator: true,
@@ -184,8 +184,11 @@ export default {
 
     // 根据不同的className 调整css
     adjustCss() {
-      // const text = this.domChange('.rest')[0].text
-      // console.log((this.domChange('.rest')[0].innerHTML = text))
+      if (this.domChange('.rest').length) {
+        console.log((this.domChange('.rest')))
+        const text = this.domChange('.rest')[0].text
+        console.log((this.domChange('.rest')[0].innerHTML = text))
+      }
     },
     changeWeek(e) {
       const calendarApi = this.$refs.Calendar.getApi()
