@@ -126,7 +126,7 @@ export default {
       const line = this.domChange('.w100 p')[0].style
       if (tableone.style.width === '59px') {
         line.width = '147px'
-      } if (tableone.style.width === '102px') {
+      } else if (tableone.style.width === '102px') {
         line.width = '191px'
         line.style = 'transform: rotate(11deg)'
       } else {
@@ -135,26 +135,10 @@ export default {
       } if (tableone.style.width === '76px') {
         line.style = '165px;'
         line.style = 'transform: rotate(11deg)'
+      } else if (tableone.style.width === '165px') {
+        line.style = '147px;'
+        line.style = 'transform: rotate(11deg)'
       }
-    },
-    // 表头时间格式调整
-    headTitle(e) {
-      const date = new Date(e)
-      const week = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
-      const nowweek = date.getDay()
-      let nowDay = date.getDate()
-      nowDay = nowDay < 10 ? '0' + nowDay : nowDay
-      let newMon = date.getMonth() + 1
-      newMon = newMon < 10 ? '0' + newMon : newMon
-      return (
-        '<div><p><span>' +
-        week[nowweek] +
-        '</span></p><p><span>' +
-        newMon +
-        '月' +
-        nowDay +
-        '</span></p></div>'
-      )
     },
     // 选着择dom
     domChange(e) {
@@ -186,8 +170,8 @@ export default {
     adjustCss() {
       if (this.domChange('.rest').length) {
         console.log((this.domChange('.rest')))
-        const text = this.domChange('.rest')[0].text
-        console.log((this.domChange('.rest')[0].innerHTML = text))
+        // const text = this.domChange('.rest')[0].text
+        // console.log((this.domChange('.rest')[0].innerHTML = text))
       }
     },
     changeWeek(e) {
@@ -215,87 +199,5 @@ export default {
 @import "~@fullcalendar/core/main.css";
 @import "~@fullcalendar/daygrid/main.css";
 @import "~@fullcalendar/timegrid/main.css";
-
-thead.fc-head {
-  height:39px;
-  background-color: #409eff;
-}
-
-#headTitle {
-  border-width: 0px;
-  position: absolute;
-  left: 2px;
-  top: 2px;
-  width: 138px;
-  word-wrap: break-word;
-}
-.fc .fc-axis {
-  padding: 0 41px;
-}
-.fc-ltr .fc-axis{
-  width: 76px;
-  text-align: left
-}
-
-.head .headRow {
-    padding: 2px 0px;
-    color: #ffffff;
-    font-size: 13px;
-    font-weight: 400;
-}
-
-button.box {
-    pointer-events: none;
-    margin: 0px 2px 0px 21px;
-    width: 10px;
-    height: 15px;
-    background-color: rgb(0, 187, 255);
-    border:none;
-}
-.el-icon-arrow-left,.el-icon-arrow-right{
-    cursor: pointer;
-}
-
-/*模拟对角线*/
-.w100 {
-  width: 100px;
-  position: relative;
-}
-.w100 span.s1 {
- position: absolute;
-    left: 10px;
-    top: 13px;
-}
-.w100 span.s2 {
-  position: absolute;
-    right: -130px;
-    top: 5px;
-}
-.w100 p {
-  width: 164px;
-    height: 1px;
-    background: red;
-    -webkit-transform: rotate(22deg);
-    transform: rotate(12deg);
-    position: absolute;
-    left: -5px;
-    top: 3px;
-}
-.demo-app {
-  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-  font-size: 14px;
-}
-
-.demo-app-top {
-  margin: 0 0 3em;
-}
-
-.demo-app-calendar {
-  margin: 0 auto;
-  // max-width: 1100px;
-}
-
-.fc-nonbusiness {
-    background: #ffd5005e;
-}
+@import "@/styles/fullcalendar.scss";
 </style>
