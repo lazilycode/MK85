@@ -32,6 +32,7 @@ export default {
   },
   data() {
     return {
+      condition: false,
       ish: true,
       date: this.AddDays(new Date(), 0),
       box: [{ name: '待上课', bgColor: '#00bbff' }, { name: '休息日', bgColor: '#ffffc4' }, { name: '被选择', bgColor: '#00af45' }],
@@ -130,14 +131,22 @@ export default {
     previouWeek() {
       this.date = this.AddDays(this.date, -7)
       this.$refs.Bc.changeWeek(this.date)
-      console.log(this.subtractOneDay())
+      if (this.condition) {
+        console.log(this.subtractOneDay())
+      } else {
+        console.log(this.date, 999)
+      }
     },
 
     // 下一周
     nextWeek() {
       this.date = this.AddDays(this.date, 7)
       this.$refs.Bc.changeWeek(this.date)
-      console.log(this.subtractOneDay())
+      if (this.condition) {
+        console.log(this.subtractOneDay())
+      } else {
+        console.log(this.date, 999)
+      }
     },
 
     // 刷新
@@ -147,6 +156,7 @@ export default {
 
     // changweWeek
     changweWeek(e) {
+      this.condition = true
       this.$refs.Bc.changeWeek(this.date)
       // console.log(e, 999)
       console.log(this.subtractOneDay())
