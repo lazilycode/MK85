@@ -127,26 +127,26 @@ export default {
       var cdate = y + '-' + m + '-' + d
       return cdate
     },
+    // 日期处理
+    chnagDate() {
+      if (this.condition) {
+        return this.subtractOneDay()
+      } else {
+        return this.date
+      }
+    },
     // 上一周
     previouWeek() {
       this.date = this.AddDays(this.date, -7)
       this.$refs.Bc.changeWeek(this.date)
-      if (this.condition) {
-        console.log(this.subtractOneDay())
-      } else {
-        console.log(this.date, 999)
-      }
+      console.log(this.chnagDate())
     },
 
     // 下一周
     nextWeek() {
       this.date = this.AddDays(this.date, 7)
       this.$refs.Bc.changeWeek(this.date)
-      if (this.condition) {
-        console.log(this.subtractOneDay())
-      } else {
-        console.log(this.date, 999)
-      }
+      console.log(this.chnagDate())
     },
 
     // 刷新
@@ -158,7 +158,6 @@ export default {
     changweWeek(e) {
       this.condition = true
       this.$refs.Bc.changeWeek(this.date)
-      // console.log(e, 999)
       console.log(this.subtractOneDay())
     }
   }
