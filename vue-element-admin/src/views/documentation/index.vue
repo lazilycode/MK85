@@ -87,6 +87,12 @@ export default {
           that.$nextTick(() => {
             that.ish = true
           })
+          if(!new Date('2019-6-9').getDay()) {
+            for (i = 0; i < 26; i++) {
+            let tim= new Date('2019-6-9'+" 08:00").getTime()+i*30
+              new Date(tim)
+            }
+          }
           that.isEdit = response.data
           console.log(response.data)
         })
@@ -100,6 +106,7 @@ export default {
           that.$nextTick(() => {
             that.ish = true
           })
+
           that.isEdit = response.data
           console.log(response.data)
         })
