@@ -2,7 +2,6 @@
   <div class="demo-app">
     {{ nowTime }}
     <FullCalendar
-      v-if="hide"
       ref="Calendar"
       class="demo-app-calendar"
       default-view="timeGridWeek"
@@ -116,9 +115,11 @@ export default {
   methods: {
 
     domAll() {
-      this.tableOne()
-      this.timeLine()
-      this.adjustCss()
+      this.$nextTick(() => {
+        this.tableOne()
+        this.timeLine()
+        this.adjustCss()
+      })
     },
     tableOne() {
       const tableone = this.domChange('.fc-axis.fc-widget-header')[0]
@@ -147,6 +148,7 @@ export default {
     // 操作dom 时间格式化
     timeLine() {
       const eleArr = this.domChange('td.fc-axis.fc-time.fc-widget-content')
+      // console.log(eleArr,4455)
       eleArr.forEach((item, index) => {
         const startTiems = item.parentNode
           .getAttribute('data-time')
