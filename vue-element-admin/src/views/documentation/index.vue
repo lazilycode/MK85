@@ -139,6 +139,7 @@ export default {
     previouWeek() {
       this.date = this.AddDays(this.date, -7)
       this.$refs.Bc.changeWeek(this.date)
+      this.dataXhr('http://127.0.0.1:7001/user?startTime=' + this.chnagDate())
       console.log(this.chnagDate())
     },
 
