@@ -62,7 +62,6 @@ export default {
       value1: '',
       columnHeaderText: function(e) {
         const date = new Date(e)
-
         const week = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
         const nowweek = date.getDay()
         let nowDay = date.getDate()
@@ -94,6 +93,9 @@ export default {
       ],
 
       eventRender: function(e, t) {
+        if (e.el.className.includes('rest')) {
+          e.el.innerHTML = "<div class='textCentn'><span> ——— </span></div>"
+        }
       },
       eventTimeFormat: { hour: 'numeric', omitZeroMinute: false, minute: '2-digit', timeZoneName: 'short' },
       alldayslot: false,
@@ -118,7 +120,6 @@ export default {
       this.$nextTick(() => {
         this.tableOne()
         this.timeLine()
-        this.adjustCss()
       })
     },
     tableOne() {
@@ -148,33 +149,20 @@ export default {
     // 操作dom 时间格式化
     timeLine() {
       const eleArr = this.domChange('td.fc-axis.fc-time.fc-widget-content')
-      // console.log(eleArr,4455)
       eleArr.forEach((item, index) => {
         const startTiems = item.parentNode
           .getAttribute('data-time')
           .substring(0, 5)
         if (index + 1 !== eleArr.length) {
-          // arr.push({ className: 'rest', start: '2019-06-09' + ' ' + startTiems, end: '2019-06-09' + ' ' + endTiems })
           const endTiems = eleArr[index + 1].parentNode
             .getAttribute('data-time')
             .substring(0, 5)
           item.innerHTML = '<span>' + startTiems + '-' + endTiems + '</span>'
         } else {
-          // arr.push({ className: 'rest', start: '2019-06-09' + ' ' + startTiems, end: '2019-06-09' + ' ' + this.endTiems })
           item.innerHTML =
             '<span>' + startTiems + '-' + this.endTime + '</span>'
         }
       })
-      // return arr
-    },
-
-    // 根据不同的className 调整css
-    adjustCss() {
-      if (this.domChange('.rest').length) {
-        console.log((this.domChange('.rest')))
-        // const text = this.domChange('.rest')[0].text
-        // console.log((this.domChange('.rest')[0].innerHTML = text))
-      }
     },
     changeWeek(e) {
       const calendarApi = this.$refs.Calendar.getApi()

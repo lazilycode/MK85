@@ -24,6 +24,7 @@
   </div>
 </template>
 <script>
+import { formatDate } from '../../utils/validate.js'
 import axios from 'axios'
 import Body from './body'
 export default {
@@ -87,14 +88,14 @@ export default {
           that.$nextTick(() => {
             that.ish = true
           })
-          if(!new Date('2019-6-9').getDay()) {
-            for (i = 0; i < 26; i++) {
-            let tim= new Date('2019-6-9'+" 08:00").getTime()+i*30
-              new Date(tim)
-            }
-          }
           that.isEdit = response.data
-          console.log(response.data)
+          that.sunDayWeek().map(item => {
+            that.isEdit.push(item)
+          })
+          console.log(that.isEdit)
+          // console.log(that.sunDayWeek())
+          // that.isEdit = [...response.data, ]
+          // console.log(that.isEdit)
         })
     },
 
@@ -111,6 +112,25 @@ export default {
           console.log(response.data)
         })
     },
+    // 周日是时间分段 数据填充
+    sunDayWeek() {
+      const arr = []
+      if (!new Date('2019-6-9').getDay()) {
+        for (let i = 0; i < 26; i++) {
+          const timeStart = new Date('2019-6-9 08:00').getTime() + i * 1800 * 1000
+          const timeEnd = new Date('2019-6-9 08:00').getTime() + (i + 1) * 1800 * 1000
+          arr.push({
+            className: 'rest',
+            title: '-',
+            start: formatDate(new Date(timeStart)),
+            end: formatDate(new Date(timeEnd)),
+            color: '#f5d31e'
+          })
+        }
+      }
+      return arr
+    },
+
     // 日期处理
     subtractOneDay() {
       const ze = new RegExp('/', 'g')
