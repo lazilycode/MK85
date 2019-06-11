@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>菜鸟教程(runoob.com)</title>
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+  <style>
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    #customers td,
+    #customers th {
+      font-size: 1em;
+      border: 1px solid #98bf21;
+      padding: 3px 7px 2px 7px;
+    }
+
+    #customers th {
+      font-size: 1.1em;
+      text-align: left;
+      padding-top: 5px;
+      padding-bottom: 4px;
+      background-color: #A7C942;
+      color: #ffffff;
+    }
+
+    #customers tr.alt td {
+      color: #000000;
+      background-color: #EAF2D3;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="app">
+    <table id="customers">
+      <tr>
+        <th>Company</th>
+        <th v-for=" (item,index) in headWeek">{{item.date}}</th>
+      </tr>
+
+      <tr v-for="(item,index) in arr">
+        <td>{{item.startTime}}</td>
+        <td v-for=" (items,index) in headWeek" @click="eventClick(item,items,this)">
+          <span> {{ changs(item,items) }}</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        nowDate:new Date(),
+        message: 'Hello Vue.js!',
+        arr: [],
+        headWeek: [],
+        space:'30',
+        startTime:"08:00",
+        endTime:"18:00"
+      },
+      mounted() {
+        this.init(this.nowDate)
+        this.sunDayWeek(this.nowDate)
+      },
+      methods: {
+        changs(e, item,sef) {
+          console.log(sef)
+          if (e.startTime === '19:00' && item.date === "2019-6-5") {
+            return "jknjknk"
+          }
+        },
+        sunDayWeek(e) {
+          const arr = []
+          if(!this.startTime) { this.startTime= '00:00', this.endTime= '24:00' }
+          let next=(parseInt(this.endTime.slice(0,2))-parseInt(this.startTime.slice(0,2)))
+          let space=  next * 60 * 60/ parseInt(this.space)/60
+          console.log(next * 60 * 60/ parseInt(this.space)/60)
+          if (!new Date( '2019-6-9').getDay()) {
+            for (let i = 0; i < space; i++) {
+              const timeStart =((new Date( formatDate(e,'YYYY-MM-DD') +" "+ this.startTime).getTime()/1000)  + i * parseInt(this.space)*60)*1000
+              const timeEnd =((new Date( formatDate(e,'YYYY-MM-DD') +" "+ this.endTime).getTime()/1000)  + (i + 1) * parseInt(this.space)*60)*1000
+              arr.push({
+                startDate: formatDate(new Date(timeStart), 'YYYY-MM-DD'),
+                startTime: formatDate(new Date(timeStart), 'hh:mm'),
+                className: 'rest',
+                title: '-',
+                start: formatDate(new Date(timeStart)),
+                end: formatDate(new Date(timeEnd)),
+                color: '#f5d31e'
+              })
+            }
+          }
+          this.arr = arr
+        },
+
+        getMonDate(e) {
+          var d = new Date(e),
+            day = d.getDay(),
+            date = d.getDate();
+          if (day == 1)
+            return d;
+          if (day == 0)
+            d.setDate(date - 6);
+          else
+            d.setDate(date - day + 1);
+          return d;
+        },
+        // 0-6转换成中文名称
+        getDayName(day) {
+          var day = parseInt(day);
+          if (isNaN(day) || day < 0 || day > 6)
+            return false;
+          var weekday = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+          return weekday[day];
+        },
+        // d是当前星期一的日期对象
+        init(e) {
+          var d = this.getMonDate(e);
+          var arr = [];
+          for (var i = 0; i < 7; i++) {
+            arr.push({
+              date: d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(),
+              week: this.getDayName(d.getDay())
+            })
+            d.setDate(d.getDate() + 1);
+          }
+          this.headWeek = arr
+        },
+        eventClick(e,r){
+        console.log(e,r)
+      }
+      },
+     
+    })
+
+    function formatDate(date, format = 'YYYY-MM-DD hh:mm:ss') {
+      if (typeof date === 'string') {
+        if (Number.isNaN(Date.parse(date))) {
+          format = date
+          date = Date.now()
+        }
+      } else if (date == null) {
+        date = Date.now()
+      }
+
+      date = new Date(date)
+      if (isNaN(date)) {
+        debugger
+        throw new TypeError('Illegal `date` type .')
+      }
+      // All be local time
+      const tokens = [
+        ['YYYY', date.getFullYear()],
+        ['YY', `${date.getFullYear()}`.slice(-2)],
+        ['MM', `0${date.getMonth() + 1}`.slice(-2)],
+        ['DD', `0${date.getDate()}`.slice(-2)],
+        ['hh', `0${date.getHours()}`.slice(-2)],
+        ['mm', `0${date.getMinutes()}`.slice(-2)],
+        ['ss', `0${date.getSeconds()}`.slice(-2)],
+        ['ms', `00${date.getMilliseconds()}`.slice(-3)]
+      ]
+
+      tokens.forEach((pair) => {
+        const [k, v] = pair
+        // k = new RegExp(`${k}`, 'g')
+        format = format.replace(k, v)
+      }
+      )
+      return format
+    }
+
+  </script>
+</body>
+
+</html>
