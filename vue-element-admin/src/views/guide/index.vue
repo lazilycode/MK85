@@ -1,164 +1,165 @@
 <template>
-  <el-table
-    :data="tableData"
-    show-overflow-tooltip="true"
-    :cell-style="cellStyle"
-    fit="false"
-    border
-    style="width: 100%"
-  >
-    <el-table-column
-      prop="date"
-      label="日期"
-    />
-    <el-table-column
-      prop="weekDayOne"
-      label="周一"
-    />
-    <el-table-column
-      prop="weekDayTwo"
-      label="周二"
-    />
-    <el-table-column
-      prop="weekDayThree"
-      label="周三"
-    />
-    <el-table-column
-      prop="name"
-      label="周四"
-    />
-    <el-table-column
-      prop="name"
-      label="周五"
-    />
-    <el-table-column
-      prop="address"
-      label="周六"
-    />
-    <el-table-column
-      prop="address"
-      label="周日"
-    />
-  </el-table>
+  <div>
+    <table id="customers">
+      <tr>
+        <th>Company</th>
+        <th v-for=" (item,index) in headWeek" :key="index">{{ item.date }}</th>
+      </tr>
+      <tr v-for="(item,index) in arr" :key="index">
+        <td>{{ item.startTime }}</td>
+        <td v-for=" (items,index) in headWeek" :key="index" @click="eventClick(item,items,$event)">
+          <span> {{ changs(item,items) }}</span>
+        </td>
+      </tr>
+    </table>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      tableData: [
-        { curr_plan_name: '高二历史同步提分',
-          endTime: '10:00',
-          isCoincide: '0',
-          jx_strategy_id: '640357',
-          lessonTypeName: '正课',
-          lesson_detail: '',
-          lesson_plan_id: '12449158',
-          lesson_type: '1',
-          minuteTime: '60',
-          planDate: '2019年06月03日',
-          plan_end_time: '2019-06-03 10:00:00',
-          plan_start_time: '2019-06-03 09:00:00',
-          startTime: '09:00',
-          status: '3',
-          studentName: '焦爽',
-          student_id: '639097',
-          teacherName: '张广飞',
-          teacher_id: '26256',
-          tick: '1',
-          type: '1',
-          typeName: '正课',
-          weekDay: '星期一',
-          weekDayOne: '星期一'
-        },
-        { curr_plan_name: '高二历史同步提分',
-          endTime: '10:00',
-          isCoincide: '0',
-          jx_strategy_id: '640357',
-          lessonTypeName: '正课',
-          lesson_detail: '',
-          lesson_plan_id: '12449158',
-          lesson_type: '1',
-          minuteTime: '60',
-          planDate: '2019年06月03日',
-          plan_end_time: '2019-06-03 10:00:00',
-          plan_start_time: '2019-06-03 09:00:00',
-          startTime: '09:00',
-          status: '3',
-          studentName: '焦爽',
-          student_id: '639097',
-          teacherName: '张广飞',
-          teacher_id: '26256',
-          tick: '1',
-          type: '1',
-          typeName: '正课',
-          weekDay: '星期一',
-          weekDayTwo: '星期二' },
-        { curr_plan_name: '高二历史同步提分',
-          endTime: '10:00',
-          isCoincide: '0',
-          jx_strategy_id: '640357',
-          lessonTypeName: '正课',
-          lesson_detail: '',
-          lesson_plan_id: '12449158',
-          lesson_type: '1',
-          minuteTime: '60',
-          planDate: '2019年06月03日',
-          plan_end_time: '2019-06-03 10:00:00',
-          plan_start_time: '2019-06-03 09:00:00',
-          startTime: '09:00',
-          status: '3',
-          studentName: '焦爽',
-          student_id: '639097',
-          teacherName: '张广飞',
-          teacher_id: '26256',
-          tick: '1',
-          type: '1',
-          typeName: '正课',
-          weekDayThree: '星期三' }
-      ],
-      tableDatas: [{
-        date: '2016-05-02',
-        name: '王小虎',
-        province: '上海',
-        city: '普陀区',
-        address: '上海市普陀区金沙江路 1518 弄',
-        zip: 200333
-      }, {
-        date: '2016-05-04',
-        name: '王小虎',
-        province: '上海',
-        city: '普陀区',
-        address: '上海市普陀区金沙江路 1517 弄',
-        zip: 200333
-      }, {
-        date: '2016-05-01',
-        name: '王小虎',
-        province: '上海',
-        city: '普陀区',
-        address: '上海市普陀区金沙江路 1519 弄',
-        zip: 200333
-      }, {
-        date: '2016-05-03',
-        name: '王小虎',
-        province: '上海',
-        city: '普陀区',
-        address: '上海市普陀区金沙江路 1516 弄',
-        zip: 200333
-      }]
+      nowDate: new Date(),
+      message: 'Hello Vue.js!',
+      arr: [],
+      headWeek: [],
+      space: '30',
+      startTime: '08:00',
+      endTime: '18:00'
     }
   },
+  mounted() {
+    this.init(this.nowDate)
+    this.sunDayWeek(this.nowDate)
+  },
   methods: {
-    cellStyle({ row, column, rowIndex, columnIndex }) {
-      console.log(column, 990)
-      // console.log(row, column, rowIndex, columnIndex)
-      if (rowIndex === 0 && columnIndex === 4) {
-        return 'background:pink'
+    changs(e, item, sef) {
+      console.log(sef)
+      if (e.startTime === '19:00' && item.date === '2019-6-5') {
+        return 'jknjknk'
       }
-      if (rowIndex === 1 && columnIndex === 4) {
-        return 'background:pink'
+    },
+    sunDayWeek(e) {
+      const arr = []
+      if (!this.startTime) {
+        this.startTime = '00:00'
+        this.endTime = '24:00'
       }
+      const next = (parseInt(this.endTime.slice(0, 2)) - parseInt(this.startTime.slice(0, 2)))
+      const space = next * 60 * 60 / parseInt(this.space) / 60
+      console.log(next * 60 * 60 / parseInt(this.space) / 60)
+      if (!new Date('2019-6-9').getDay()) {
+        for (let i = 0; i < space; i++) {
+          const timeStart = ((new Date(formatDate(e, 'YYYY-MM-DD') + ' ' + this.startTime).getTime() / 1000) + i * parseInt(this.space) * 60) * 1000
+          const timeEnd = ((new Date(formatDate(e, 'YYYY-MM-DD') + ' ' + this.endTime).getTime() / 1000) + (i + 1) * parseInt(this.space) * 60) * 1000
+          arr.push({
+            startDate: formatDate(new Date(timeStart), 'YYYY-MM-DD'),
+            startTime: formatDate(new Date(timeStart), 'hh:mm'),
+            className: 'rest',
+            title: '-',
+            start: formatDate(new Date(timeStart)),
+            end: formatDate(new Date(timeEnd)),
+            color: '#f5d31e'
+          })
+        }
+      }
+      this.arr = arr
+    },
+
+    getMonDate(e) {
+      var d = new Date(e)
+      var day = d.getDay()
+      var date = d.getDate()
+      if (day === 1) { return d }
+      if (day === 0) { d.setDate(date - 6) } else { d.setDate(date - day + 1) }
+      return d
+    },
+    // 0-6转换成中文名称
+    getDayName(days) {
+      const day = parseInt(days)
+      if (isNaN(day) || day < 0 || day > 6) { return false }
+      var weekday = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+      return weekday[day]
+    },
+    // d是当前星期一的日期对象
+    init(e) {
+      var d = this.getMonDate(e)
+      var arr = []
+      for (var i = 0; i < 7; i++) {
+        arr.push({
+          date: d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(),
+          week: this.getDayName(d.getDay())
+        })
+        d.setDate(d.getDate() + 1)
+      }
+      this.headWeek = arr
+    },
+    eventClick(e, r, t) {
+      console.log(e, r, t)
     }
   }
 }
+function formatDate(date, format = 'YYYY-MM-DD hh:mm:ss') {
+  if (typeof date === 'string') {
+    if (Number.isNaN(Date.parse(date))) {
+      format = date
+      date = Date.now()
+    }
+  } else if (date == null) {
+    date = Date.now()
+  }
+
+  date = new Date(date)
+  if (isNaN(date)) {
+    debugger
+    throw new TypeError('Illegal `date` type .')
+  }
+  // All be local time
+  const tokens = [
+    ['YYYY', date.getFullYear()],
+    ['YY', `${date.getFullYear()}`.slice(-2)],
+    ['MM', `0${date.getMonth() + 1}`.slice(-2)],
+    ['DD', `0${date.getDate()}`.slice(-2)],
+    ['hh', `0${date.getHours()}`.slice(-2)],
+    ['mm', `0${date.getMinutes()}`.slice(-2)],
+    ['ss', `0${date.getSeconds()}`.slice(-2)],
+    ['ms', `00${date.getMilliseconds()}`.slice(-3)]
+  ]
+
+  tokens.forEach((pair) => {
+    const [k, v] = pair
+    // k = new RegExp(`${k}`, 'g')
+    format = format.replace(k, v)
+  }
+  )
+  return format
+}
 </script>
+<style scoped>
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    #customers td,
+    #customers th {
+      font-size: 1em;
+      border: 1px solid #98bf21;
+      padding: 3px 7px 2px 7px;
+    }
+
+    #customers th {
+      font-size: 1.1em;
+      text-align: left;
+      padding-top: 5px;
+      padding-bottom: 4px;
+      background-color: #A7C942;
+      color: #ffffff;
+    }
+
+    #customers tr.alt td {
+      color: #000000;
+      background-color: #EAF2D3;
+    }
+</style>

@@ -46,7 +46,7 @@
 
       <tr v-for="(item,index) in arr">
         <td>{{item.startTime}}</td>
-        <td v-for=" (items,index) in headWeek" @click="eventClick(item,items,this)">
+        <td v-for=" (items,index) in headWeek" @click="eventClick(item,items,$event)">
           <span> {{ changs(item,items) }}</span>
         </td>
       </tr>
@@ -132,8 +132,8 @@
           }
           this.headWeek = arr
         },
-        eventClick(e,r){
-        console.log(e,r)
+        eventClick(e,r,t){
+        console.log(e,r,t)
       }
       },
      
