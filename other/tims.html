@@ -2,23 +2,42 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
 
+
 <body>
-    <script>
-        var date1 = '2018-12-26 00:00:00';
-        var date2 = '2018-12-29 04:00:00';
-        if(!new Date('2019-6-9').getDay()) {
-            for (i = 0; i < 26; i++) {
-            let tim= new Date('2019-6-9'+" 08:00").getTime()+i*30
-              new Date(tim)
-            }
-          }
-    </script>
+  <button onclick="test(1)" ondblclick="test(2)"></button>
+  <script language="javascript">
+
+    function test() {
+      var touchtime = new Date().getTime();
+      console.log(touchtime)
+      if (new Date().getTime() - touchtime < 10000) {
+        console.log(touchtime,new Date().getTime())
+        alert(55)
+      } else {
+        touchtime = new Date().getTime();
+        console.log("click")
+      }
+    }
+
+
+  </script>
+  <script>
+
+    var date1 = '2018-12-26 00:00:00';
+    var date2 = '2018-12-29 04:00:00';
+    if (!new Date('2019-6-9').getDay()) {
+      for (i = 0; i < 26; i++) {
+        let tim = new Date('2019-6-9' + " 08:00").getTime() + i * 30
+        new Date(tim)
+      }
+    }
+  </script>
 </body>
 
 </html>

@@ -72,6 +72,19 @@ export const constantRouterMap = [
     ]
   },
 
+  {
+    path: '/demoTable',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'demoTable',
+        component: () => import('@/views/demoTable/index'),
+        meta: { title: 'demoTable', icon: 'form' }
+      }
+    ]
+  },
+
   { path: '*', redirect: '/404', hidden: true }
 ]
 

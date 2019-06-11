@@ -24,6 +24,7 @@
       :events="events"
       :now="nowTime"
       :column-header-html="columnHeaderText"
+      @eventClick="eventClick"
       @dateClick="handleDateClick"
       @eventMouseEnter="eventMouseEnter"
       @select="select"
@@ -102,8 +103,8 @@ export default {
       defaultView: 'timeGridWeek',
       nowIndicator: true,
       locale: zhcnLocale,
-      calendarWeekends: true
-
+      calendarWeekends: true,
+      touchtime: false
     }
   },
   computed: {
@@ -169,17 +170,34 @@ export default {
       calendarApi.gotoDate(e)
       this.domAll(0)
     },
+
     eventMouseEnter(e) {
-      console.log(e, 90)
+      // console.log(e, 90)
     },
     handleDateClick(info) {
-      // alert('Clicked on: ' + info.dateStr)
-      // alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY)
-      // alert('Current view: ' + info.view.type)
-      // info.dayEl.style.backgroundColor = 'red'
+      if (this.touchtime) {
+        alert(66)
+        this.touchtime = false
+      } else {
+        this.touchtime = true
+        setTimeout(() => {
+          this.touchtime = false
+        }, 300)
+      }
     },
     select: function(info) {
       alert('selected ' + info.startStr + ' to ' + info.endStr)
+    },
+    eventClick(e) {
+      if (this.touchtime) {
+        alert(6655)
+        this.touchtime = false
+      } else {
+        this.touchtime = true
+        setTimeout(() => {
+          this.touchtime = false
+        }, 300)
+      }
     }
   }
 }
