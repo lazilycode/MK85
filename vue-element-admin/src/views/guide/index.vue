@@ -7,7 +7,7 @@
       </tr>
       <tr v-for="(item,index) in arr" :key="index">
         <td>{{ item.startTime }}</td>
-        <td v-for=" (items,index) in headWeek" :key="index" @click="eventClick(item,items,$event)">
+        <td v-for=" (items, indexs) in headWeek" :key="indexs" @click="eventClick(item,items,$event)">
           <span> {{ changs(item,items) }}</span>
         </td>
       </tr>
