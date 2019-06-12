@@ -2,13 +2,19 @@
   <div>
     <table id="customers">
       <tr>
-        <th>Company</th>
-        <th v-for=" (item,index) in headWeek" :key="index">{{ item.date }}</th>
+        <th />
+        <th v-for=" (item,index) in headWeek" :key="index">
+          <span>{{ item.date }}</span>
+        </th>
       </tr>
-      <tr v-for="(item,index) in arr" :key="index">
-        <td>{{ item.startTime }}</td>
-        <td v-for=" (items, indexs) in headWeek" :key="indexs" @click="eventClick(item,items,$event)">
-          <span> {{ changs(item,items) }}</span>
+      <tr v-for="(row,rowindex) in arr" :key="rowindex">
+        <td>{{ row.start }}</td>
+        <td v-for=" (item, index) in headWeek" :key="index" @click="eventClick(row,item,$event)">
+          <div v-for="(ite, ind) in daArr" :key="ind">
+            <a v-if="row.start===ite.start&&item.date===ite.day" :class="{ 'class-a': ite.className}">
+              {{ ite.title }}
+            </a>
+          </div>
         </td>
       </tr>
     </table>
@@ -25,7 +31,14 @@ export default {
       headWeek: [],
       space: '30',
       startTime: '08:00',
-      endTime: '18:00'
+      endTime: '18:00',
+      daArr: [{
+        day: '2019-6-11',
+        start: '11:00',
+        end: '12:00',
+        title: 353,
+        className: 'demo'
+      }]
     }
   },
   mounted() {
@@ -33,12 +46,6 @@ export default {
     this.sunDayWeek(this.nowDate)
   },
   methods: {
-    changs(e, item, sef) {
-      console.log(sef)
-      if (e.startTime === '19:00' && item.date === '2019-6-5') {
-        return 'jknjknk'
-      }
-    },
     sunDayWeek(e) {
       const arr = []
       if (!this.startTime) {
@@ -53,16 +60,15 @@ export default {
           const timeStart = ((new Date(formatDate(e, 'YYYY-MM-DD') + ' ' + this.startTime).getTime() / 1000) + i * parseInt(this.space) * 60) * 1000
           const timeEnd = ((new Date(formatDate(e, 'YYYY-MM-DD') + ' ' + this.endTime).getTime() / 1000) + (i + 1) * parseInt(this.space) * 60) * 1000
           arr.push({
-            startDate: formatDate(new Date(timeStart), 'YYYY-MM-DD'),
-            startTime: formatDate(new Date(timeStart), 'hh:mm'),
-            className: 'rest',
-            title: '-',
-            start: formatDate(new Date(timeStart)),
-            end: formatDate(new Date(timeEnd)),
-            color: '#f5d31e'
+            startDate: formatDate(new Date(timeStart), 'YYYY-MM-DD hh:mm'),
+            endDate: formatDate(new Date(timeStart), 'YYYY-MM-DD hh:mm'),
+            nowDay: formatDate(new Date(timeStart), 'YYYY-MM-DD'),
+            start: formatDate(new Date(timeStart), 'hh:mm'),
+            end: formatDate(new Date(timeEnd), 'hh:mm')
           })
         }
       }
+      console.log(arr)
       this.arr = arr
     },
 
@@ -111,7 +117,6 @@ function formatDate(date, format = 'YYYY-MM-DD hh:mm:ss') {
 
   date = new Date(date)
   if (isNaN(date)) {
-    debugger
     throw new TypeError('Illegal `date` type .')
   }
   // All be local time
@@ -144,12 +149,15 @@ function formatDate(date, format = 'YYYY-MM-DD hh:mm:ss') {
 
     #customers td,
     #customers th {
+      text-align: center;
       font-size: 1em;
       border: 1px solid #98bf21;
       padding: 3px 7px 2px 7px;
+      position: relative
     }
 
     #customers th {
+        text-align: center;
       font-size: 1.1em;
       text-align: left;
       padding-top: 5px;
@@ -161,5 +169,13 @@ function formatDate(date, format = 'YYYY-MM-DD hh:mm:ss') {
     #customers tr.alt td {
       color: #000000;
       background-color: #EAF2D3;
+    }
+
+    a.class-a{
+      width: 100%;
+      position: absolute;
+      top:0px;
+      left: 0px;
+      background-color: antiquewhite;
     }
 </style>
