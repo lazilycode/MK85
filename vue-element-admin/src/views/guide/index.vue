@@ -44,6 +44,7 @@ export default {
   mounted() {
     this.init(this.nowDate)
     this.sunDayWeek(this.nowDate)
+    console.log(this.getTeacherTime(this.daArr))
   },
   methods: {
     sunDayWeek(e) {
@@ -70,6 +71,37 @@ export default {
       }
       console.log(arr)
       this.arr = arr
+    },
+
+    getTeacherTime(itemList) {
+      if (!itemList && !itemList.length) {
+        return []
+      }
+      const newLint = []
+      let startIndex = 0
+      let endIndex = 0
+      itemList.forEach((ele, index) => {
+        if (index + 1 === itemList.length) {
+          newLint.push({
+            plan_start_time: itemList[startIndex].plan_start_time,
+            plan_end_time: itemList[endIndex].plan_end_time,
+            type: '4'
+          })
+          return newLint
+        }
+        if (ele && ele.plan_end_time === itemList[index + 1].plan_start_time) {
+          endIndex = index + 1
+        } else {
+          newLint.push({
+            plan_start_time: itemList[startIndex].plan_start_time,
+            plan_end_time: itemList[endIndex].plan_end_time,
+            type: '4'
+          })
+          startIndex = index + 1
+          endIndex = index + 1
+        }
+      })
+      return newLint
     },
 
     getMonDate(e) {
@@ -105,6 +137,7 @@ export default {
     }
   }
 }
+
 function formatDate(date, format = 'YYYY-MM-DD hh:mm:ss') {
   if (typeof date === 'string') {
     if (Number.isNaN(Date.parse(date))) {
@@ -141,41 +174,41 @@ function formatDate(date, format = 'YYYY-MM-DD hh:mm:ss') {
 }
 </script>
 <style scoped>
-    #customers {
-      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-      width: 100%;
-      border-collapse: collapse;
-    }
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  width: 100%;
+  border-collapse: collapse;
+}
 
-    #customers td,
-    #customers th {
-      text-align: center;
-      font-size: 1em;
-      border: 1px solid #98bf21;
-      padding: 3px 7px 2px 7px;
-      position: relative
-    }
+#customers td,
+#customers th {
+  text-align: center;
+  font-size: 1em;
+  border: 1px solid #98bf21;
+  padding: 3px 7px 2px 7px;
+  position: relative;
+}
 
-    #customers th {
-        text-align: center;
-      font-size: 1.1em;
-      text-align: left;
-      padding-top: 5px;
-      padding-bottom: 4px;
-      background-color: #A7C942;
-      color: #ffffff;
-    }
+#customers th {
+  text-align: center;
+  font-size: 1.1em;
+  text-align: left;
+  padding-top: 5px;
+  padding-bottom: 4px;
+  background-color: #a7c942;
+  color: #ffffff;
+}
 
-    #customers tr.alt td {
-      color: #000000;
-      background-color: #EAF2D3;
-    }
+#customers tr.alt td {
+  color: #000000;
+  background-color: #eaf2d3;
+}
 
-    a.class-a{
-      width: 100%;
-      position: absolute;
-      top:0px;
-      left: 0px;
-      background-color: antiquewhite;
-    }
+a.class-a {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: antiquewhite;
+}
 </style>
