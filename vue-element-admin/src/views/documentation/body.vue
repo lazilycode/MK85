@@ -176,7 +176,8 @@ export default {
     },
     handleDateClick(info) {
       if (this.touchtime) {
-        alert(66)
+        this.$emit('show-CityName', info)
+        // alert(66)
         this.touchtime = false
       } else {
         this.touchtime = true

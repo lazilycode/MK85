@@ -13,7 +13,7 @@ module.exports = appInfo => {
       enable: false,
       ignoreJSON: true
     },
-    domainWhiteList: ['http://localhost:9527']
+    domainWhiteList: ['http://localhost:9527','http://10.52.24.53:9527']
   };
   config.cors = {
     origin:'*',

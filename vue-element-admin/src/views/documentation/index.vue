@@ -20,7 +20,7 @@
         </div>
       </el-col>
     </el-row>
-    <Body v-if="ish" ref="Bc" :events="isEdit" :now-time="date" />
+    <Body v-if="ish" ref="Bc" :events="isEdit" :now-time="date" @show-CityName="showCityName" />
   </div>
 </template>
 <script>
@@ -188,7 +188,14 @@ export default {
       this.condition = true
       this.$refs.Bc.changeWeek(this.date)
       console.log(this.subtractOneDay())
+    },
+
+    // clicksucctk
+    showCityName(e) {
+      this.$refs.Bc.changeWeek(this.date)
+      // alert(55787864)
     }
+
   }
 }
 </script>
