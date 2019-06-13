@@ -33,7 +33,25 @@ export default {
       startTime: '08:00',
       endTime: '18:00',
       daArr: [{
+        startDay:'2019-6-11 11:00',
+        endDay:'2019-6-11 12:00',
         day: '2019-6-11',
+        start: '11:00',
+        end: '12:00',
+        title: 353,
+        className: 'demo'
+      },{
+        startDay:'2019-6-12 11:00',
+        endDay:'2019-6-12 12:00',
+        day: '2019-6-11',
+        start: '14:00',
+        end: '16:00',
+        title: 353,
+        className: 'demo'
+      },{
+        startDay:'2019-6-13 11:00',
+        endDay:'2019-6-13 18:00',
+        day: '2019-6-13',
         start: '11:00',
         end: '12:00',
         title: 353,
@@ -44,7 +62,7 @@ export default {
   mounted() {
     this.init(this.nowDate)
     this.sunDayWeek(this.nowDate)
-    console.log(this.getTeacherTime(this.daArr))
+    this.timesection()
   },
   methods: {
     sunDayWeek(e) {
@@ -62,7 +80,7 @@ export default {
           const timeEnd = ((new Date(formatDate(e, 'YYYY-MM-DD') + ' ' + this.endTime).getTime() / 1000) + (i + 1) * parseInt(this.space) * 60) * 1000
           arr.push({
             startDate: formatDate(new Date(timeStart), 'YYYY-MM-DD hh:mm'),
-            endDate: formatDate(new Date(timeStart), 'YYYY-MM-DD hh:mm'),
+            endDate: formatDate(new Date(timeEnd), 'YYYY-MM-DD hh:mm'),
             nowDay: formatDate(new Date(timeStart), 'YYYY-MM-DD'),
             start: formatDate(new Date(timeStart), 'hh:mm'),
             end: formatDate(new Date(timeEnd), 'hh:mm')
@@ -73,37 +91,7 @@ export default {
       this.arr = arr
     },
 
-    getTeacherTime(itemList) {
-      if (!itemList && !itemList.length) {
-        return []
-      }
-      const newLint = []
-      let startIndex = 0
-      let endIndex = 0
-      itemList.forEach((ele, index) => {
-        if (index + 1 === itemList.length) {
-          newLint.push({
-            plan_start_time: itemList[startIndex].plan_start_time,
-            plan_end_time: itemList[endIndex].plan_end_time,
-            type: '4'
-          })
-          return newLint
-        }
-        if (ele && ele.plan_end_time === itemList[index + 1].plan_start_time) {
-          endIndex = index + 1
-        } else {
-          newLint.push({
-            plan_start_time: itemList[startIndex].plan_start_time,
-            plan_end_time: itemList[endIndex].plan_end_time,
-            type: '4'
-          })
-          startIndex = index + 1
-          endIndex = index + 1
-        }
-      })
-      return newLint
-    },
-
+  
     getMonDate(e) {
       var d = new Date(e)
       var day = d.getDay()
@@ -132,6 +120,17 @@ export default {
       }
       this.headWeek = arr
     },
+
+    //较长的日期按时间段分割
+    timesection(){
+      this.daArr.forEach((item,index)=>{
+          // 获取秒除以时间间隔
+        let mistiming= new Date(item.endDay).getTime() - new Date(item.startDay).getTime() 
+        mistiming=mistiming / (parseInt(this.space) * 60) * 1000
+        console.log(mistiming)
+      })
+    },
+
     eventClick(e, r, t) {
       console.log(e, r, t)
     }

@@ -20,7 +20,38 @@
         </div>
       </el-col>
     </el-row>
+    <div class="block"> <span class="demonstration">默认</span>
+    {{value1}}
+     <el-date-picker
+     @click="se"
+       v-model="value1"
+       type="datetime"
+       :picker-options="{
+        selectableRange:['09:30:00 - 10:00:00', '10:00:00 - 10:30:00'] }"
+       format="yyyy-MM-dd HH:mm" 
+       value-format="yyyy-MM-dd HH:mm"
+      placeholder="选择日期">
+    </el-date-picker>
+
+     <!-- <el-date-picker
+      v-model="value1"
+      type="datetime"
+       format='HH:mm'
+      placeholder="选择日期时间">
+    </el-date-picker>
+
+    <el-time-select
+    placeholder="起始时间"
+    v-model="startTime"
+    :picker-options="{
+      start: '08:30',
+      step: '00:30',
+      end: '18:30'
+    }">
+  </el-time-select> -->
+  </div>
     <Body v-if="ish" ref="Bc" :events="isEdit" :now-time="date" @show-CityName="showCityName" />
+    
   </div>
 </template>
 <script>
@@ -33,6 +64,8 @@ export default {
   },
   data() {
     return {
+      value1:'',
+      startTime:'',
       condition: false,
       ish: true,
       date: this.AddDays(new Date(), 0),
@@ -79,7 +112,15 @@ export default {
   created() {
 
   },
+  mounted(){
+    
+
+  },
   methods: {
+    se(){
+     let arr= document.querySelectorAll('.el-scrollbar__view.el-time-spinner__list')[1]
+      console.log(arr)
+    },
     dataXhr(url) {
       const that = this
       axios.get(url)
@@ -192,7 +233,9 @@ export default {
 
     // clicksucctk
     showCityName(e) {
+      console.log(e,888)
       this.$refs.Bc.changeWeek(this.date)
+       this.dataXhr('http://127.0.0.1:7001/user?startTime=' + this.chnagDate())
       // alert(55787864)
     }
 
