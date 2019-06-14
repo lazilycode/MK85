@@ -1,41 +1,20 @@
 {
   "keys": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
   "middleware": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
-  "mysql": {
-    "client": {
-      "host": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
-      "port": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
-      "user": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
-      "password": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
-      "database": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js"
-    },
-    "app": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
-    "agent": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
-    "default": {
-      "database": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-mysql@3.0.0@egg-mysql/config/config.default.js",
-      "connectionLimit": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-mysql@3.0.0@egg-mysql/config/config.default.js"
-    }
-  },
-  "session": {
-    "maxAge": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-session@2.2.0@egg-session/config/config.default.js",
-    "key": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-session@2.2.0@egg-session/config/config.default.js",
-    "httpOnly": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-session@2.2.0@egg-session/config/config.default.js",
-    "encrypt": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-session@2.2.0@egg-session/config/config.default.js"
-  },
   "security": {
-    "domainWhiteList": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js",
-    "protocolWhiteList": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js",
-    "defaultMiddleware": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js",
     "csrf": {
-      "enable": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js",
+      "enable": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
+      "ignoreJSON": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
       "useSession": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js",
-      "ignoreJSON": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js",
       "cookieName": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js",
       "sessionName": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js",
       "headerName": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js",
       "bodyName": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js",
       "queryName": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js"
     },
+    "domainWhiteList": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
+    "protocolWhiteList": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js",
+    "defaultMiddleware": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js",
     "xframe": {
       "enable": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js",
       "value": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js"
@@ -70,6 +49,34 @@
       "checkAddress": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js"
     }
   },
+  "cors": {
+    "origin": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
+    "allowMethods": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js"
+  },
+  "assets": {
+    "publicPath": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js"
+  },
+  "mysql": {
+    "client": {
+      "host": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
+      "port": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
+      "user": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
+      "password": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
+      "database": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js"
+    },
+    "app": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
+    "agent": "/Users/kunlingwu/Desktop/newDemo/cnode-api/config/config.default.js",
+    "default": {
+      "database": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-mysql@3.0.0@egg-mysql/config/config.default.js",
+      "connectionLimit": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-mysql@3.0.0@egg-mysql/config/config.default.js"
+    }
+  },
+  "session": {
+    "maxAge": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-session@2.2.0@egg-session/config/config.default.js",
+    "key": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-session@2.2.0@egg-session/config/config.default.js",
+    "httpOnly": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-session@2.2.0@egg-session/config/config.default.js",
+    "encrypt": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-session@2.2.0@egg-session/config/config.default.js"
+  },
   "helper": {
     "shtml": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js"
   },
@@ -97,15 +104,20 @@
     }
   },
   "multipart": {
-    "autoFields": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@1.5.1@egg-multipart/config/config.default.js",
-    "defaultCharset": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@1.5.1@egg-multipart/config/config.default.js",
-    "fieldNameSize": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@1.5.1@egg-multipart/config/config.default.js",
-    "fieldSize": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@1.5.1@egg-multipart/config/config.default.js",
-    "fields": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@1.5.1@egg-multipart/config/config.default.js",
-    "fileSize": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@1.5.1@egg-multipart/config/config.default.js",
-    "files": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@1.5.1@egg-multipart/config/config.default.js",
-    "fileExtensions": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@1.5.1@egg-multipart/config/config.default.js",
-    "whitelist": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@1.5.1@egg-multipart/config/config.default.js"
+    "mode": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@2.7.1@egg-multipart/config/config.default.js",
+    "autoFields": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@2.7.1@egg-multipart/config/config.default.js",
+    "defaultCharset": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@2.7.1@egg-multipart/config/config.default.js",
+    "fieldNameSize": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@2.7.1@egg-multipart/config/config.default.js",
+    "fieldSize": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@2.7.1@egg-multipart/config/config.default.js",
+    "fields": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@2.7.1@egg-multipart/config/config.default.js",
+    "fileSize": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@2.7.1@egg-multipart/config/config.default.js",
+    "files": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@2.7.1@egg-multipart/config/config.default.js",
+    "fileExtensions": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@2.7.1@egg-multipart/config/config.default.js",
+    "whitelist": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@2.7.1@egg-multipart/config/config.default.js",
+    "tmpdir": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@2.7.1@egg-multipart/config/config.default.js",
+    "cleanSchedule": {
+      "cron": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@2.7.1@egg-multipart/config/config.default.js"
+    }
   },
   "development": {
     "watchDirs": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-development@1.4.2@egg-development/config/config.default.js",
@@ -151,6 +163,7 @@
     "private": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg@1.19.0@egg/config/config.default.js",
     "dependencies": {
       "egg": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg@1.19.0@egg/config/config.default.js",
+      "egg-cors": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg@1.19.0@egg/config/config.default.js",
       "egg-mysql": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg@1.19.0@egg/config/config.default.js",
       "egg-validate": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg@1.19.0@egg/config/config.default.js"
     },

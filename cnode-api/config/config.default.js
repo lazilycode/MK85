@@ -6,19 +6,27 @@ module.exports = appInfo => {
   // should change to your own
   config.keys = appInfo.name + '_1490750627161_5967';
 
-  config.middleware = [ 'errorHandler' ];
+  config.middleware = ['errorHandler'];
 
   config.security = {
     csrf: {
       enable: false,
       ignoreJSON: true
     },
-    domainWhiteList: ['http://localhost:9527','http://10.52.24.53:9527']
+    domainWhiteList: ['http://localhost:9527', 'http://10.52.24.53:9527']
   };
   config.cors = {
-    origin:'*',
+    origin: '*',
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
   };
+
+  config.assets = {
+    publicPath: "/public/",
+  }
+
+  // const dir = [path.join(appInfo.baseDir, 'app/public')];
+
+
 
   //mysql 
   config.mysql = {
