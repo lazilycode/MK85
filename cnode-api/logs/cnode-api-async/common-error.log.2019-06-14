@@ -1,0 +1,188 @@
+2019-06-09 20:39:09,130 ERROR 4846 [-/127.0.0.1/-/0ms GET /] nodejs.ReferenceError: query is not defined
+    at User.info (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/user.js:5:14)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 4846
+hostname: kunlingdeMacBook-Pro.local
+
+2019-06-09 20:44:19,586 ERROR 5294 [-/127.0.0.1/-/1ms GET /] nodejs.ER_PARSE_ERRORError: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''2019-06-15' at line 1
+    at Query.Sequence._packetToError (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_mysql@2.17.1@mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_mysql@2.17.1@mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_mysql@2.17.1@mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_mysql@2.17.1@mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_mysql@2.17.1@mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_mysql@2.17.1@mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_mysql@2.17.1@mysql/lib/Connection.js:91:28)
+    at Socket.<anonymous> (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_mysql@2.17.1@mysql/lib/Connection.js:525:10)
+    at Socket.emit (events.js:182:13)
+    at addChunk (_stream_readable.js:283:12)
+    --------------------
+    at Pool.query (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_mysql@2.17.1@mysql/lib/Pool.js:199:23)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_pify@2.3.0@pify/index.js:29:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_pify@2.3.0@pify/index.js:12:10)
+    at Pool.ret [as query] (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_pify@2.3.0@pify/index.js:56:34)
+    at RDSClient.proto._query (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_ali-rds@3.3.0@ali-rds/lib/client.js:34:20)
+    at RDSClient.proto.query (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_ali-rds@3.3.0@ali-rds/lib/operator.js:54:29)
+    at proto.query.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    sql: select * from data where start>'2019-06-08' and start<'2019-06-15
+code: "ER_PARSE_ERROR"
+errno: 1064
+sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''2019-06-15' at line 1"
+sqlState: "42000"
+index: 0
+sql: "select * from data where start>'2019-06-08' and start<'2019-06-15"
+name: "ER_PARSE_ERRORError"
+pid: 5294
+hostname: kunlingdeMacBook-Pro.local
+
+2019-06-09 20:55:42,938 ERROR 3672 nodejs.ClusterClientNoResponseError: client no response in 275312ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_cluster-client@1.7.5@cluster-client/lib/leader.js:73:23)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ClusterClientNoResponseError"
+pid: 3672
+hostname: kunlingdeMacBook-Pro.local
+
+2019-06-10 10:40:50,211 ERROR 843 nodejs.ClusterClientNoResponseError: client no response in 430947ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_cluster-client@1.7.5@cluster-client/lib/leader.js:73:23)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ClusterClientNoResponseError"
+pid: 843
+hostname: kunlingdeMBP.lan
+
+2019-06-13 16:45:55,723 ERROR 21820 nodejs.ClusterClientNoResponseError: client no response in 5917587ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_cluster-client@1.7.5@cluster-client/lib/leader.js:73:23)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ClusterClientNoResponseError"
+pid: 21820
+hostname: kunlingdeMBP.lan
+
+2019-06-13 17:34:15,126 ERROR 21820 nodejs.ClusterClientNoResponseError: client no response in 2899398ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_cluster-client@1.7.5@cluster-client/lib/leader.js:73:23)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ClusterClientNoResponseError"
+pid: 21820
+hostname: kunlingdeMBP.lan
+
+2019-06-13 17:55:11,354 ERROR 21820 nodejs.ClusterClientNoResponseError: client no response in 556117ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_cluster-client@1.7.5@cluster-client/lib/leader.js:73:23)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ClusterClientNoResponseError"
+pid: 21820
+hostname: kunlingdeMBP.lan
+
+2019-06-13 21:22:05,430 ERROR 21820 nodejs.ClusterClientNoResponseError: client no response in 12373975ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_cluster-client@1.7.5@cluster-client/lib/leader.js:73:23)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ClusterClientNoResponseError"
+pid: 21820
+hostname: kunlingdeMBP.lan
+
+2019-06-13 22:06:06,310 ERROR 21820 nodejs.ClusterClientNoResponseError: client no response in 776344ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_cluster-client@1.7.5@cluster-client/lib/leader.js:73:23)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ClusterClientNoResponseError"
+pid: 21820
+hostname: kunlingdeMBP.lan
+
+2019-06-13 22:16:58,003 ERROR 21820 nodejs.ClusterClientNoResponseError: client no response in 511664ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_cluster-client@1.7.5@cluster-client/lib/leader.js:73:23)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ClusterClientNoResponseError"
+pid: 21820
+hostname: kunlingdeMBP.lan
+
+2019-06-13 22:36:37,397 ERROR 21820 nodejs.ClusterClientNoResponseError: client no response in 919330ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_cluster-client@1.7.5@cluster-client/lib/leader.js:73:23)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ClusterClientNoResponseError"
+pid: 21820
+hostname: kunlingdeMBP.lan
+
+2019-06-14 09:15:09,533 ERROR 21820 nodejs.ClusterClientNoResponseError: client no response in 29560780ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_cluster-client@1.7.5@cluster-client/lib/leader.js:73:23)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ClusterClientNoResponseError"
+pid: 21820
+hostname: kunlingdeMBP.lan
+
+2019-06-14 17:55:04,275 ERROR 21820 nodejs.ClusterClientNoResponseError: client no response in 31194684ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_cluster-client@1.7.5@cluster-client/lib/leader.js:73:23)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ClusterClientNoResponseError"
+pid: 21820
+hostname: kunlingdeMBP.lan
+
+2019-06-14 18:01:00,589 ERROR 21820 nodejs.ClusterClientNoResponseError: client no response in 96269ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_cluster-client@1.7.5@cluster-client/lib/leader.js:73:23)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ClusterClientNoResponseError"
+pid: 21820
+hostname: kunlingdeMBP.lan
+
+2019-06-14 22:41:38,661 ERROR 21820 nodejs.ClusterClientNoResponseError: client no response in 16177976ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_cluster-client@1.7.5@cluster-client/lib/leader.js:73:23)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ClusterClientNoResponseError"
+pid: 21820
+hostname: kunlingdeMBP.lan
+
+2019-06-14 23:14:07,702 ERROR 33880 [-/127.0.0.1/-/0ms GET /] nodejs.ENOENTError: ENOENT: no such file or directory, open '/Users/kunlingwu/Desktop/newDemo/cnode-api/app/public/uploads/f2689d40ea5f8fe6745d13b29ec7778a.png'
+ENOENTError: ENOENT: no such file or directory, open '/Users/kunlingwu/Desktop/newDemo/cnode-api/app/public/uploads/f2689d40ea5f8fe6745d13b29ec7778a.png'
+errno: -2
+code: "ENOENT"
+syscall: "open"
+path: "/Users/kunlingwu/Desktop/newDemo/cnode-api/app/public/uploads/f2689d40ea5f8fe6745d13b29ec7778a.png"
+name: "ENOENTError"
+pid: 33880
+hostname: kunlingdeMacBook-Pro.local
+

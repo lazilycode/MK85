@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <el-upload
-      action="http://127.0.0.1:7001/upload" 
+      action="http://127.0.0.1:7001/upload"
       list-type="picture-card"
       :on-preview="handlePictureCardPreview"
       :before-upload="beforeAvatarUpload"
@@ -18,37 +18,57 @@
 
 <script>
 export default {
-    data() {
-      return {
-        dialogImageUrl: '',
-        dialogVisible: false
-      };
-    },
-    methods: {
-      beforeAvatarUpload(file) {  
-        const isJPG = file.type === 'image/png';
-        const isLt2M = file.size / 1024 / 1024 < 2;
+  data() {
+    return {
+      dialogImageUrl: "",
+      dialogVisible: false
+    };
+  },
+  methods: {
+    beforeAvatarUpload(file) {
+      const isJPG = file.type === "image/png";
+      const isLt2M = file.size / 1024 / 1024 < 2;
 
-        if (!isJPG) {
-          this.$message.error('上传头像图片只能是 JPG 格式!');
-        }
-        if (!isLt2M) {
-          this.$message.error('上传头像图片大小不能超过 2MB!');
-        }
-        return isJPG && isLt2M;
-      },
-      handleRemove(file, fileList) {
-        console.log(file, fileList);
-      },
-      handlePictureCardPreview(file) {
-        this.dialogImageUrl = file.url;
-        this.dialogVisible = true;
-      },
-      beforeRemove(file, fileList) {
-        return this.$confirm(`确定移除 ${ file.name }？`,'提示');
+      if (!isJPG) {
+        this.$message.error("上传头像图片只能是 JPG 格式!");
       }
+      if (!isLt2M) {
+        this.$message.error("上传头像图片大小不能超过 2MB!");
+      }
+      return isJPG && isLt2M;
+    },
+    handleRemove(file, fileList) {
+      console.log(file, fileList);
+    },
+    handlePictureCardPreview(file) {
+      this.dialogImageUrl = file.url;
+      this.dialogVisible = true;
+    },
+    beforeRemove(file, fileList) {
+      return this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning",
+        center: true
+      })
+        .then(() => {
+          this.$message({
+            type: "success",
+            message: "删除成功!"
+          });
+        })
+        .catch(res => {
+          if(action === "cancel"){
+            return false
+          }
+          // this.$message({
+          //   type: "info",
+          //   message: action === "cancel" ? false : true
+          // });
+        });
     }
   }
+};
 </script>
 <style>
 .avatar-uploader .el-upload {
