@@ -9,7 +9,7 @@
     "path": "/user",
     "regexp": "/^\\/user(?:\\/(?=$))?$/",
     "stack": [
-      "/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/user.js#User.info()"
+      "G:\\Mk85\\MK85\\cnode-api\\app\\controller\\user.js#User.info()"
     ]
   },
   {

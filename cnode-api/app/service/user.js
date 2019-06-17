@@ -6,7 +6,8 @@ class User extends Service {
         let seventDay= this.AddDays(arg.startTime,7)
         console.log(arg.startTime,seventDay,999)
         //    2019-06-08 2019-06-15 999
-        const user = await this.app.mysql.query("select * from data where start>'"+arg.startTime+"' and start<'"+seventDay+"';")
+        const user= await this.app.mysql.select('data')
+        // const user = await this.app.mysql.query("select * from data where start>'"+arg.startTime+"' and start<'"+seventDay+"';")
         return user;
     }
 

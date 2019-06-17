@@ -94,6 +94,7 @@ export default {
       ],
 
       eventRender: function(e, t) {
+        console.log(e, t)
         if (e.el.className.includes('rest')) {
           e.el.innerHTML = "<div class='textCentn'><span> ——— </span></div>"
         }
