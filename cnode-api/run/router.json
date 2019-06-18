@@ -9,19 +9,7 @@
     "path": "/user",
     "regexp": "/^\\/user(?:\\/(?=$))?$/",
     "stack": [
-      "/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/user.js#User.info()"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "POST"
-    ],
-    "paramNames": [],
-    "path": "/upload",
-    "regexp": "/^\\/upload(?:\\/(?=$))?$/",
-    "stack": [
-      "/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/upload.js#UploadController.index()"
+      "G:\\Mk85\\MK85\\cnode-api\\app\\controller\\user.js#User.info()"
     ]
   },
   {

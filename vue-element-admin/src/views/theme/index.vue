@@ -1,97 +1,118 @@
 <template>
   <div class="app-container">
-    <el-upload
-      action="http://127.0.0.1:7001/upload"
-      list-type="picture-card"
-      :on-preview="handlePictureCardPreview"
-      :before-upload="beforeAvatarUpload"
-      :before-remove="beforeRemove"
-      :on-remove="handleRemove"
-    >
-      <i class="el-icon-plus"></i>
-    </el-upload>
-    <el-dialog :visible.sync="dialogVisible">
-      <img width="100%" :src="dialogImageUrl" alt>
-    </el-dialog>
+    <el-card class="box-card">
+      <div slot="header">
+        <a class="link-type link-title" target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/guide/advanced/theme.html">
+          {{ $t('theme.documentation') }}
+        </a>
+      </div>
+      <div class="box-item">
+        <span class="field-label">{{ $t('theme.change') }} : </span>
+        <el-switch v-model="theme" />
+        <aside style="margin-top:15px;">{{ $t('theme.tips') }}</aside>
+      </div>
+    </el-card>
+
+    <div class="block">
+      <el-button type="primary">
+        Primary
+      </el-button>
+      <el-button type="success">
+        Success
+      </el-button>
+      <el-button type="info">
+        Info
+      </el-button>
+      <el-button type="warning">
+        Warning
+      </el-button>
+      <el-button type="danger">
+        Danger
+      </el-button>
+    </div>
+
+    <div class="block">
+      <el-button type="primary" icon="el-icon-edit" />
+      <el-button type="primary" icon="el-icon-share" />
+      <el-button type="primary" icon="el-icon-delete" />
+      <el-button type="primary" icon="el-icon-search">
+        Search
+      </el-button>
+      <el-button type="primary">
+        Upload
+        <i class="el-icon-upload el-icon-right" />
+      </el-button>
+    </div>
+
+    <div class="block">
+      <el-tag v-for="tag in tags" :key="tag.type" :type="tag.type" class="tag-item">
+        {{ tag.name }}
+      </el-tag>
+    </div>
+
+    <div class="block">
+      <el-radio-group v-model="radio">
+        <el-radio :label="3">
+          Option A
+        </el-radio>
+        <el-radio :label="6">
+          Option B
+        </el-radio>
+        <el-radio :label="9">
+          Option C
+        </el-radio>
+      </el-radio-group>
+    </div>
+
+    <div class="block">
+      <el-slider v-model="slideValue" />
+    </div>
   </div>
 </template>
 
 <script>
+import { toggleClass } from '@/utils'
+import '@/assets/custom-theme/index.css' // the theme changed version element-ui css
+
 export default {
+  name: 'Theme',
   data() {
     return {
-      dialogImageUrl: "",
-      dialogVisible: false
-    };
+      theme: false,
+      tags: [
+        { name: 'Tag One', type: '' },
+        { name: 'Tag Two', type: 'info' },
+        { name: 'Tag Three', type: 'success' },
+        { name: 'Tag Four', type: 'warning' },
+        { name: 'Tag Five', type: 'danger' }
+      ],
+      slideValue: 50,
+      radio: 3
+    }
   },
-  methods: {
-    beforeAvatarUpload(file) {
-      const isJPG = file.type === "image/png";
-      const isLt2M = file.size / 1024 / 1024 < 2;
-
-      if (!isJPG) {
-        this.$message.error("上传头像图片只能是 JPG 格式!");
-      }
-      if (!isLt2M) {
-        this.$message.error("上传头像图片大小不能超过 2MB!");
-      }
-      return isJPG && isLt2M;
-    },
-    handleRemove(file, fileList) {
-      console.log(file, fileList);
-    },
-    handlePictureCardPreview(file) {
-      this.dialogImageUrl = file.url;
-      this.dialogVisible = true;
-    },
-    beforeRemove(file, fileList) {
-      return this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning",
-        center: true
-      })
-        .then(() => {
-          this.$message({
-            type: "success",
-            message: "删除成功!"
-          });
-        })
-        .catch(res => {
-          if(action === "cancel"){
-            return false
-          }
-          // this.$message({
-          //   type: "info",
-          //   message: action === "cancel" ? false : true
-          // });
-        });
+  watch: {
+    theme() {
+      toggleClass(document.body, 'custom-theme')
     }
   }
-};
+}
 </script>
-<style>
-.avatar-uploader .el-upload {
-  border: 1px dashed #d9d9d9;
-  border-radius: 6px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
+
+<style scoped>
+.field-label{
+  vertical-align: middle;
 }
-.avatar-uploader .el-upload:hover {
-  border-color: #409eff;
+.box-card {
+  width: 400px;
+  max-width: 100%;
+  margin: 20px auto;
 }
-.avatar-uploader-icon {
-  font-size: 28px;
-  color: #8c939d;
-  width: 178px;
-  height: 178px;
-  line-height: 178px;
-  text-align: center;
+
+.block {
+  padding: 30px 24px;
 }
-.avatar {
-  width: 178px;
-  height: 178px;
-  display: block;
+
+.tag-item {
+  margin-right: 15px;
 }
 </style>
