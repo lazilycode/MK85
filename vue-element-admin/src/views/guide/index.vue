@@ -33,24 +33,24 @@ export default {
       startTime: '08:00',
       endTime: '18:00',
       daArr: [{
-        startDay:'2019-6-11 11:00',
-        endDay:'2019-6-11 12:00',
+        startDay: '2019-6-11 11:00',
+        endDay: '2019-6-11 12:00',
         day: '2019-6-11',
         start: '11:00',
         end: '12:00',
         title: 353,
         className: 'demo'
-      },{
-        startDay:'2019-6-12 11:00',
-        endDay:'2019-6-12 12:00',
+      }, {
+        startDay: '2019-6-12 11:00',
+        endDay: '2019-6-12 12:00',
         day: '2019-6-11',
         start: '14:00',
         end: '16:00',
         title: 353,
         className: 'demo'
-      },{
-        startDay:'2019-6-13 11:00',
-        endDay:'2019-6-13 18:00',
+      }, {
+        startDay: '2019-6-13 11:00',
+        endDay: '2019-6-13 18:00',
         day: '2019-6-13',
         start: '11:00',
         end: '12:00',
@@ -91,7 +91,6 @@ export default {
       this.arr = arr
     },
 
-  
     getMonDate(e) {
       var d = new Date(e)
       var day = d.getDay()
@@ -121,12 +120,12 @@ export default {
       this.headWeek = arr
     },
 
-    //较长的日期按时间段分割
-    timesection(){
-      this.daArr.forEach((item,index)=>{
-          // 获取秒除以时间间隔
-        let mistiming= new Date(item.endDay).getTime() - new Date(item.startDay).getTime() 
-        mistiming=mistiming / (parseInt(this.space) * 60) * 1000
+    // 较长的日期按时间段分割
+    timesection() {
+      this.daArr.forEach((item, index) => {
+        // 获取秒除以时间间隔
+        let mistiming = new Date(item.endDay).getTime() - new Date(item.startDay).getTime()
+        mistiming = mistiming / (parseInt(this.space) * 60) * 1000
         console.log(mistiming)
       })
     },
