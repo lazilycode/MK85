@@ -70,25 +70,25 @@ export default {
           className: "demo"
         }
       ]
-    };
+    }
   },
   mounted() {
-    this.init(this.nowDate);
-    this.sunDayWeek(this.nowDate);
-    this.timesection();
+    this.init(this.nowDate)
+    this.sunDayWeek(this.nowDate)
+    this.timesection()
   },
   methods: {
     sunDayWeek(e) {
-      const arr = [];
+      const arr = []
       if (!this.startTime) {
-        this.startTime = "00:00";
-        this.endTime = "24:00";
+        this.startTime = "00:00"
+        this.endTime = "24:00"
       }
       const next =
         parseInt(this.endTime.slice(0, 2)) -
-        parseInt(this.startTime.slice(0, 2));
-      const space = (next * 60 * 60) / parseInt(this.space) / 60;
-      console.log((next * 60 * 60) / parseInt(this.space) / 60);
+        parseInt(this.startTime.slice(0, 2))
+      const space = (next * 60 * 60) / parseInt(this.space) / 60
+      console.log((next * 60 * 60) / parseInt(this.space) / 60)
       if (!new Date("2019-6-9").getDay()) {
         for (let i = 0; i < space; i++) {
           const timeStart =
@@ -97,39 +97,39 @@ export default {
             ).getTime() /
               1000 +
               i * parseInt(this.space) * 60) *
-            1000;
+            1000
           const timeEnd =
             (new Date(
               formatDate(e, "YYYY-MM-DD") + " " + this.endTime
             ).getTime() /
               1000 +
               (i + 1) * parseInt(this.space) * 60) *
-            1000;
+            1000
           arr.push({
             startDate: formatDate(new Date(timeStart), "YYYY-MM-DD hh:mm"),
             endDate: formatDate(new Date(timeEnd), "YYYY-MM-DD hh:mm"),
             nowDay: formatDate(new Date(timeStart), "YYYY-MM-DD"),
             start: formatDate(new Date(timeStart), "hh:mm"),
             end: formatDate(new Date(timeEnd), "hh:mm")
-          });
+          })
         }
       }
-      console.log(arr);
-      this.arr = arr;
+      console.log(arr)
+      this.arr = arr
     },
 
     // d是当前星期一的日期对象
     init(e) {
-      var d = getMonDate(e);
-      var arr = [];
+      var d = getMonDate(e)
+      var arr = []
       for (var i = 0; i < 7; i++) {
         arr.push({
           date: d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(),
           week: getDayName(d.getDay())
-        });
-        d.setDate(d.getDate() + 1);
+        })
+        d.setDate(d.getDate() + 1)
       }
-      this.headWeek = arr;
+      this.headWeek = arr
     },
 
     // 较长的日期按时间段分割
@@ -137,17 +137,17 @@ export default {
       this.daArr.forEach((item, index) => {
         // 获取秒除以时间间隔
         let mistiming =
-          new Date(item.endDay).getTime() - new Date(item.startDay).getTime();
-        mistiming = (mistiming / (parseInt(this.space) * 60)) * 1000;
-        console.log(mistiming);
-      });
+          new Date(item.endDay).getTime() - new Date(item.startDay).getTime()
+        mistiming = (mistiming / (parseInt(this.space) * 60)) * 1000
+        console.log(mistiming)
+      })
     },
 
     eventClick(e, r, t) {
-      console.log(e, r, t);
+      console.log(e, r, t)
     }
   }
-};
+}
 </script>
 <style scoped>
 #customers {
