@@ -29,16 +29,21 @@
       @eventMouseEnter="eventMouseEnter"
       @select="select"
     />
+    <div id="pop" role="tooltip">
+  <div x-arrow></div>
+  pop
+</div>
   </div>
 </template>
 
 <script>
-
+import Popper from 'popper.js';
 import FullCalendar from '@fullcalendar/vue'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import zhcnLocale from '@fullcalendar/core/locales/zh-cn'
+import { debuglog } from 'util';
 
 export default {
   components: {
@@ -173,7 +178,10 @@ export default {
     },
 
     eventMouseEnter(e) {
-      // console.log(e, 90)
+      const popEl = document.getElementById('pop');
+         new Popper(e.el, popEl, {
+          placement: 'right'
+        });
     },
     handleDateClick(info) {
       if (this.touchtime) {
