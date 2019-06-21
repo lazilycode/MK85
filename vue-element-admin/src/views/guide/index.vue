@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import {formatDate ,getMonDate,getDayName} from './uts'
 export default {
   data() {
     return {
@@ -33,27 +34,27 @@ export default {
       startTime: '08:00',
       endTime: '18:00',
       daArr: [{
-        startDay: '2019-6-11 11:00',
-        endDay: '2019-6-11 12:00',
-        day: '2019-6-11',
+        startDay: '2019-6-21 11:00',
+        endDay: '2019-6-21 12:00',
+        day: '2019-6-21',
         start: '11:00',
         end: '12:00',
         title: 353,
         className: 'demo'
       }, {
-        startDay: '2019-6-12 11:00',
-        endDay: '2019-6-12 12:00',
-        day: '2019-6-11',
+        startDay: '2019-6-21 11:00',
+        endDay: '2019-6-21 12:00',
+        day: '2019-6-21',
         start: '14:00',
         end: '16:00',
         title: 353,
         className: 'demo'
       }, {
-        startDay: '2019-6-13 11:00',
-        endDay: '2019-6-13 18:00',
-        day: '2019-6-13',
-        start: '11:00',
-        end: '12:00',
+       startDay: '2019-6-21 11:00',
+        endDay: '2019-6-21 12:00',
+        day: '2019-6-21',
+        start: '15:00',
+        end: '15:30',
         title: 353,
         className: 'demo'
       }]
@@ -91,29 +92,15 @@ export default {
       this.arr = arr
     },
 
-    getMonDate(e) {
-      var d = new Date(e)
-      var day = d.getDay()
-      var date = d.getDate()
-      if (day === 1) { return d }
-      if (day === 0) { d.setDate(date - 6) } else { d.setDate(date - day + 1) }
-      return d
-    },
-    // 0-6转换成中文名称
-    getDayName(days) {
-      const day = parseInt(days)
-      if (isNaN(day) || day < 0 || day > 6) { return false }
-      var weekday = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
-      return weekday[day]
-    },
+   
     // d是当前星期一的日期对象
     init(e) {
-      var d = this.getMonDate(e)
+      var d = getMonDate(e)
       var arr = []
       for (var i = 0; i < 7; i++) {
         arr.push({
           date: d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(),
-          week: this.getDayName(d.getDay())
+          week: getDayName(d.getDay())
         })
         d.setDate(d.getDate() + 1)
       }
@@ -136,40 +123,7 @@ export default {
   }
 }
 
-function formatDate(date, format = 'YYYY-MM-DD hh:mm:ss') {
-  if (typeof date === 'string') {
-    if (Number.isNaN(Date.parse(date))) {
-      format = date
-      date = Date.now()
-    }
-  } else if (date == null) {
-    date = Date.now()
-  }
 
-  date = new Date(date)
-  if (isNaN(date)) {
-    throw new TypeError('Illegal `date` type .')
-  }
-  // All be local time
-  const tokens = [
-    ['YYYY', date.getFullYear()],
-    ['YY', `${date.getFullYear()}`.slice(-2)],
-    ['MM', `0${date.getMonth() + 1}`.slice(-2)],
-    ['DD', `0${date.getDate()}`.slice(-2)],
-    ['hh', `0${date.getHours()}`.slice(-2)],
-    ['mm', `0${date.getMinutes()}`.slice(-2)],
-    ['ss', `0${date.getSeconds()}`.slice(-2)],
-    ['ms', `00${date.getMilliseconds()}`.slice(-3)]
-  ]
-
-  tokens.forEach((pair) => {
-    const [k, v] = pair
-    // k = new RegExp(`${k}`, 'g')
-    format = format.replace(k, v)
-  }
-  )
-  return format
-}
 </script>
 <style scoped>
 #customers {
