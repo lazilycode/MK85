@@ -27,23 +27,24 @@
       @eventClick="eventClick"
       @dateClick="handleDateClick"
       @eventMouseEnter="eventMouseEnter"
+      @eventMouseLeave="eventMouseLeave"
       @select="select"
     />
     <div id="pop" role="tooltip">
-  <div x-arrow></div>
-  pop
-</div>
+      <div x-arrow />
+      pop
+    </div>
   </div>
 </template>
 
 <script>
-import Popper from 'popper.js';
+import Popper from 'popper.js'
 import FullCalendar from '@fullcalendar/vue'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import zhcnLocale from '@fullcalendar/core/locales/zh-cn'
-import { debuglog } from 'util';
+// import { debuglog } from 'util'
 
 export default {
   components: {
@@ -178,10 +179,16 @@ export default {
     },
 
     eventMouseEnter(e) {
-      const popEl = document.getElementById('pop');
-         new Popper(e.el, popEl, {
-          placement: 'right'
-        });
+      console.log(e)
+      const popEl = document.getElementById('pop')
+      popEl.style.display = 'block'
+      new Popper(e.el, popEl, {
+        placement: 'top'
+      })
+    },
+    eventMouseLeave(e) {
+      document.getElementById('pop').style.display = 'none'
+      console.log(e, '900')
     },
     handleDateClick(info) {
       if (this.touchtime) {
