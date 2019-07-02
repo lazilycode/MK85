@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table id="customers">
+    <!-- <table id="customers">
       <tr>
         <th />
         <th v-for=" (item,index) in headWeek" :key="index">
@@ -22,34 +22,27 @@
           </div>
         </td>
       </tr>
-    </table>
+    </table> -->
     <table id="customers">
-      <!-- <caption>Favorite and Least Favorite Things</caption> -->
       <tr>
+        <th> <span>dscdscd</span></th>
         <th v-for=" (item,index) in headWeek" :key="index"> <span>{{ item.date }}</span></th>
       </tr>
       <tr v-for="(row,rowindex) in arr" :key="rowindex">
-        <th rowspan="2">{{ row.start }}</th>
-        <th>Color</th>
-        <td>Blue</td>
-        <td>Purple</td>
+        <td v-if="(rowindex+1)%2" rowspan="2">{{ row.start }}</td>
+        <td
+          v-for=" (item, index) in headWeek"
+          :key="index"
+          @click="eventClick(row.start,item.date,$event)"
+        >
+          <div v-for="(ite, ind) in daArr" :key="ind">
+            <el-popover placement="top-start" width="200" :trigger="ite.hover==='hover'?'hover':'manual'">
+              <div v-html="ite.html" />
+              <a v-if="row.start===ite.start&&item.date===ite.day" slot="reference" :class="{ 'class-a': ite.className}"> {{ ite.title }}</a>
+            </el-popover>
+          </div>
+        </td>
       </tr>
-      <!-- <tr>
-        <th>Flavor</th>
-        <td>Banana</td>
-        <td>Chocolate</td>
-      </tr>
-      <tr>
-        <th>Least Favorite</th>
-        <th>Color</th>
-        <td>Yellow</td>
-        <td>Pink</td>
-      </tr>
-      <tr>
-        <th>Flavor</th>
-        <td>Mint</td>
-        <td>Walnut</td>
-      </tr> -->
     </table>
   </div>
 </template>
@@ -68,9 +61,9 @@ export default {
       daArr: [
         {
           html: '<span>sdjcbniunciuejnce<span>',
-          startDay: '2019-6-21 11:00',
-          endDay: '2019-6-21 12:00',
-          day: '2019-6-21',
+          startDay: '2019-7-2 11:00',
+          endDay: '2019-7-2 12:00',
+          day: '2019-7-2',
           start: '11:00',
           end: '12:00',
           title: 353,
@@ -181,7 +174,7 @@ export default {
 	text-align: center;
 	font-size: 1em;
 	border: 1px solid #98bf21;
-	padding: 3px 7px 2px 7px;
+	padding: 31px 7px 2px 7px;
 	position: relative;
 }
 
