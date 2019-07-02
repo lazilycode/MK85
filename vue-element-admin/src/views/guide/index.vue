@@ -24,20 +24,17 @@
       </tr>
     </table>
     <table id="customers">
-      <caption>Favorite and Least Favorite Things</caption>
+      <!-- <caption>Favorite and Least Favorite Things</caption> -->
       <tr>
-        <th />
-        <th />
-        <th>Bob</th>
-        <th>Alice</th>
+        <th v-for=" (item,index) in headWeek" :key="index"> <span>{{ item.date }}</span></th>
       </tr>
-      <tr>
-        <th rowspan="2">Favorite</th>
+      <tr v-for="(row,rowindex) in arr" :key="rowindex">
+        <th rowspan="2">{{ row.start }}</th>
         <th>Color</th>
         <td>Blue</td>
         <td>Purple</td>
       </tr>
-      <tr>
+      <!-- <tr>
         <th>Flavor</th>
         <td>Banana</td>
         <td>Chocolate</td>
@@ -52,7 +49,7 @@
         <th>Flavor</th>
         <td>Mint</td>
         <td>Walnut</td>
-      </tr>
+      </tr> -->
     </table>
   </div>
 </template>
