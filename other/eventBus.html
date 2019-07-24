@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class EventBus {
+            constructor() {
+                this.events = {}
+            }
+
+            on = (eventName, callback) => {
+                this.events[eventName] = callback; // 以事件名为key 订阅函数为value存储在events里
+            }
+
+            fire = (eventName) => {
+                this.events[eventName]() // 调用事件对应的订阅函数
+            }
+        }
+        const eventBus = new EventBus()
+        eventBus.on('greet'); // 订阅事件 greet
+
+        setTimeout(() => {
+            eventBus.fire('greet') // 3s 后触发 greet 事件
+        }, 1000);
+
+    </script>
+</body>
+
+</html>
