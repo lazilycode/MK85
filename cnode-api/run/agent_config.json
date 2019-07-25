@@ -80,7 +80,7 @@
       "cookieMaxAge": "1y"
     },
     "watcher": {
-      "type": "default",
+      "type": "development",
       "eventSources": {
         "default": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-watcher@2.2.0@egg-watcher/lib/event-sources/default",
         "development": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-watcher@2.2.0@egg-watcher/lib/event-sources/development"
@@ -97,6 +97,12 @@
       "fileExtensions": [],
       "whitelist": null
     },
+    "development": {
+      "watchDirs": [],
+      "ignoreDirs": [],
+      "fastReady": false,
+      "reloadOnDebug": true
+    },
     "logrotator": {
       "filesRotateByHour": null,
       "hourDelimiter": "-",
@@ -111,13 +117,12 @@
       "dir": "/Users/kunlingwu/Desktop/newDemo/cnode-api/app/public",
       "dynamic": true,
       "preload": false,
-      "buffer": true,
-      "maxFiles": 1000,
-      "maxAge": 31536000
+      "buffer": false,
+      "maxFiles": 1000
     },
     "view": {
       "root": "/Users/kunlingwu/Desktop/newDemo/cnode-api/app/view",
-      "cache": true,
+      "cache": false,
       "defaultExtension": ".html",
       "defaultViewEngine": "",
       "mapping": {}
@@ -141,7 +146,7 @@
       "origin": "*",
       "allowMethods": "GET,HEAD,PUT,POST,DELETE,PATCH"
     },
-    "env": "prod",
+    "env": "local",
     "name": "cnode-api-async",
     "keys": "<String len: 34>",
     "proxy": false,
@@ -216,19 +221,21 @@
       }
     },
     "logger": {
-      "dir": "/Users/kunlingwu/logs/cnode-api-async",
+      "dir": "/Users/kunlingwu/Desktop/newDemo/cnode-api/logs/cnode-api-async",
       "encoding": "utf8",
-      "env": "prod",
+      "env": "local",
       "level": "INFO",
       "consoleLevel": "INFO",
-      "disableConsoleAfterReady": true,
+      "disableConsoleAfterReady": false,
       "outputJSON": false,
       "buffer": true,
       "appLogName": "cnode-api-async-web.log",
       "coreLogName": "egg-web.log",
       "agentLogName": "egg-agent.log",
       "errorLogName": "common-error.log",
-      "coreLogger": {},
+      "coreLogger": {
+        "consoleLevel": "WARN"
+      },
       "allowDebugAtProd": false,
       "type": "agent"
     },
@@ -361,6 +368,21 @@
       "from": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg@1.19.0@egg/config/plugin.js",
       "path": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@1.5.1@egg-multipart",
       "version": "1.5.1"
+    },
+    "development": {
+      "enable": true,
+      "package": "egg-development",
+      "name": "development",
+      "dependencies": [
+        "watcher"
+      ],
+      "optionalDependencies": [],
+      "env": [
+        "local"
+      ],
+      "from": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg@1.19.0@egg/config/plugin.js",
+      "path": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-development@1.4.2@egg-development",
+      "version": "1.4.2"
     },
     "schedule": {
       "enable": true,

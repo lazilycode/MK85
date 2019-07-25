@@ -1,0 +1,566 @@
+2019-07-25 23:17:03,022 ERROR 24414 [-/127.0.0.1/-/1ms GET /] nodejs.ReferenceError: nodeExcel is not defined
+    at User.Gettest (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/user.js:43:22)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 24414
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:17:14,407 ERROR 24414 [-/127.0.0.1/-/0ms GET /] nodejs.ReferenceError: res is not defined
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:30:9)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 24414
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:17:25,683 ERROR 24459 [-/127.0.0.1/-/1ms GET /] nodejs.ReferenceError: res is not defined
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:30:9)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 24459
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:17:48,389 ERROR 24543 [-/127.0.0.1/-/0ms GET /] nodejs.ReferenceError: res is not defined
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:30:9)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 24543
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:17:55,465 ERROR 24543 [-/127.0.0.1/-/0ms GET /] nodejs.ReferenceError: res is not defined
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:30:9)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 24543
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:18:06,746 ERROR 24543 [-/127.0.0.1/-/0ms GET /] nodejs.ReferenceError: res is not defined
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:30:9)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 24543
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:18:20,639 ERROR 24589 [-/127.0.0.1/-/1ms GET /] nodejs.TypeError: ctx.setHeader is not a function
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:30:13)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 24589
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:18:49,991 ERROR 24638 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError: ctx.end is not a function
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:33:13)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 24638
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:23:37,793 ERROR 24855 [-/127.0.0.1/-/0ms GET /] nodejs.ReferenceError: document is not defined
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:35:18)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 24855
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:23:38,060 ERROR 24855 [-/127.0.0.1/-/0ms GET /] nodejs.ReferenceError: document is not defined
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:35:18)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 24855
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:23:39,310 ERROR 24855 [-/127.0.0.1/-/0ms GET /] nodejs.ReferenceError: document is not defined
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:35:18)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 24855
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:23:40,228 ERROR 24855 [-/127.0.0.1/-/0ms GET /] nodejs.ReferenceError: document is not defined
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:35:18)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 24855
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:23:42,153 ERROR 24855 [-/127.0.0.1/-/0ms GET /] nodejs.ReferenceError: document is not defined
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:35:18)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 24855
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:23:47,316 ERROR 24855 [-/127.0.0.1/-/0ms GET /] nodejs.ReferenceError: document is not defined
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:35:18)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 24855
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:31:05,053 ERROR 25354 [-/127.0.0.1/-/1ms GET /] nodejs.ReferenceError: filename is not defined
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:32:36)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 25354
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:33:25,608 ERROR 25427 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError: ctx.setHeader is not a function
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:30:13)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 25427
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:33:40,506 ERROR 25466 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError: ctx.setHeader is not a function
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:30:13)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 25466
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:33:42,766 ERROR 25466 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError: ctx.setHeader is not a function
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:30:13)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 25466
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:33:43,387 ERROR 25466 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError: ctx.setHeader is not a function
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:30:13)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 25466
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:33:43,660 ERROR 25466 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError: ctx.setHeader is not a function
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:30:13)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 25466
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:33:43,871 ERROR 25466 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError: ctx.setHeader is not a function
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:30:13)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 25466
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:33:44,070 ERROR 25466 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError: ctx.setHeader is not a function
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:30:13)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 25466
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:33:44,277 ERROR 25466 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError: ctx.setHeader is not a function
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:30:13)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 25466
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:33:44,473 ERROR 25466 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError: ctx.setHeader is not a function
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:30:13)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 25466
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:33:54,581 ERROR 25492 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError: ctx.end is not a function
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:32:20)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 25492
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:33:54,725 ERROR 25492 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError: ctx.end is not a function
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:32:20)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 25492
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:33:55,404 ERROR 25492 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError: ctx.end is not a function
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:32:20)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 25492
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:33:55,908 ERROR 25492 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError: ctx.end is not a function
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:32:20)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 25492
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:33:56,136 ERROR 25492 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError: ctx.end is not a function
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:32:20)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 25492
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:33:56,318 ERROR 25492 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError: ctx.end is not a function
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:32:20)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 25492
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:34:01,398 ERROR 25492 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError: ctx.end is not a function
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:32:20)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 25492
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:34:31,552 ERROR 25514 [-/127.0.0.1/-/1ms GET /] nodejs.TypeError: ctx.end is not a function
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:32:20)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 25514
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:43:37,425 ERROR 25888 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError: ctx.helper.data is not a function
+    at Excel.excel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:116:30)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at module.exports.callFn (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/utils/index.js:58:53)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/app/middleware/error_handler.js:6:13
+    at Object.callFn (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/utils/index.js:45:15)
+
+pid: 25888
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:57:12,079 ERROR 26513 [-/127.0.0.1/-/1ms GET /] nodejs.ReferenceError: outExcel is not defined
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:9:9)
+    at callController (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-core@3.21.4@egg-core/lib/loader/mixin/controller.js:128:18)
+    at callController.next (<anonymous>)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:65:19)
+    at /Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:54:5
+    at new Promise (<anonymous>)
+    at co (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:50:10)
+    at toPromise (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:118:63)
+    at next (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:99:29)
+    at onFulfilled (/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_co@4.6.0@co/index.js:69:7)
+
+pid: 26513
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:57:45,591 ERROR 26541 [-/127.0.0.1/-/0ms GET /] nodejs.ReferenceError: ctx is not defined
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:11:9)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+
+pid: 26541
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:58:01,359 ERROR 26597 [-/127.0.0.1/-/1ms GET /] nodejs.ReferenceError: fs is not defined
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:14:20)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+
+pid: 26597
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:58:19,382 ERROR 26613 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError [ERR_INVALID_CALLBACK]: Callback must be a function
+    at makeCallback (fs.js:137:11)
+    at Object.unlink (fs.js:936:14)
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:17:12)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+
+pid: 26613
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:59:02,326 ERROR 26645 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError [ERR_INVALID_CALLBACK]: Callback must be a function
+    at makeCallback (fs.js:137:11)
+    at Object.unlink (fs.js:936:14)
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:18:12)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+
+pid: 26645
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:59:02,618 ERROR 26645 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError [ERR_INVALID_CALLBACK]: Callback must be a function
+    at makeCallback (fs.js:137:11)
+    at Object.unlink (fs.js:936:14)
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:18:12)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+
+pid: 26645
+hostname: kunlingdeMacBook-Pro.local
+
+2019-07-25 23:59:02,817 ERROR 26645 [-/127.0.0.1/-/0ms GET /] nodejs.TypeError [ERR_INVALID_CALLBACK]: Callback must be a function
+    at makeCallback (fs.js:137:11)
+    at Object.unlink (fs.js:936:14)
+    at Excel.getExcel (/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js:18:12)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+
+pid: 26645
+hostname: kunlingdeMacBook-Pro.local
+

@@ -37,5 +37,31 @@
     "stack": [
       "/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/user.js#User.test()"
     ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/excel",
+    "regexp": "/^\\/excel(?:\\/(?=$))?$/",
+    "stack": [
+      "/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js#Excel.getExcel()"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/__loader_trace__",
+    "regexp": "/^\\/__loader_trace__(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous"
+    ]
   }
 ]

@@ -17,5 +17,6 @@ class User extends Controller {
         const userInfo = await ctx.service.user.test(ctx.query);
         ctx.body = userInfo;
     }
+    
 }
 module.exports = User;
