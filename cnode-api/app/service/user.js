@@ -1,5 +1,31 @@
 const Service = require('egg').Service;
 class User extends Service {
+    
+    async allData(arg) {
+        const user= await this.app.mysql.select('data')
+
+        return user;
+    }
+    
+    async test(arg) {
+        const row = {
+            title: 'demo3ytgytgytfg',
+            id: 3,
+            start: '17000000',
+            end: '180000000',
+            className: 'green',
+            test: 'abc'
+           }
+        const user= await this.app.mysql.update('data', row);
+        if(  user.affectedRows === 1){
+            return {
+                code:'0000',
+                mes:"成工"
+            };
+        }
+      
+       
+    }
     async info(arg) {
         let arr=[]
         const { ctx } = this;

@@ -9,7 +9,7 @@
     "path": "/user",
     "regexp": "/^\\/user(?:\\/(?=$))?$/",
     "stack": [
-      "G:\\Mk85\\MK85\\cnode-api\\app\\controller\\user.js#User.info()"
+      "/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/user.js#User.info()"
     ]
   },
   {
@@ -19,10 +19,23 @@
       "GET"
     ],
     "paramNames": [],
-    "path": "/__loader_trace__",
-    "regexp": "/^\\/__loader_trace__(?:\\/(?=$))?$/",
+    "path": "/Alldata",
+    "regexp": "/^\\/Alldata(?:\\/(?=$))?$/",
     "stack": [
-      "anonymous"
+      "/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/user.js#User.allData()"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/test",
+    "regexp": "/^\\/test(?:\\/(?=$))?$/",
+    "stack": [
+      "/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/user.js#User.test()"
     ]
   }
 ]

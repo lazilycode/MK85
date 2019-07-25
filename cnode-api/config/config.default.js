@@ -20,6 +20,13 @@ module.exports = appInfo => {
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
   };
 
+  config.cluster = {
+    listen: {
+      port: 7001,
+      hostname: '127.0.0.1',
+    }
+  }
+
   //mysql 
   config.mysql = {
     // 单数据库信息配置
