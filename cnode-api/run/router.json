@@ -50,18 +50,5 @@
     "stack": [
       "/Users/kunlingwu/Desktop/newDemo/cnode-api/app/controller/excel.js#Excel.getExcel()"
     ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "HEAD",
-      "GET"
-    ],
-    "paramNames": [],
-    "path": "/__loader_trace__",
-    "regexp": "/^\\/__loader_trace__(?:\\/(?=$))?$/",
-    "stack": [
-      "anonymous"
-    ]
   }
 ]

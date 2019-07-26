@@ -1,6 +1,6 @@
 
 
-let nodeExcel = require('excel-export');
+
 const dlXlsx = require('../excel/index');
 const fs = require('fs');
 const path =require('path');
