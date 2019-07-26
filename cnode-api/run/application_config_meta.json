@@ -20,7 +20,7 @@
       "value": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js"
     },
     "hsts": {
-      "enable": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js",
+      "enable": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.local.js",
       "maxAge": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js",
       "includeSubdomains": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-security@1.13.2@egg-security/config/config.default.js"
     },
@@ -101,7 +101,7 @@
     "cookieMaxAge": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-i18n@1.2.0@egg-i18n/config/config.default.js"
   },
   "watcher": {
-    "type": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-watcher@2.2.0@egg-watcher/config/config.default.js",
+    "type": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-watcher@2.2.0@egg-watcher/config/config.local.js",
     "eventSources": {
       "default": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-watcher@2.2.0@egg-watcher/config/config.default.js",
       "development": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-watcher@2.2.0@egg-watcher/config/config.default.js"
@@ -118,6 +118,12 @@
     "fileExtensions": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@1.5.1@egg-multipart/config/config.default.js",
     "whitelist": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-multipart@1.5.1@egg-multipart/config/config.default.js"
   },
+  "development": {
+    "watchDirs": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-development@1.4.2@egg-development/config/config.default.js",
+    "ignoreDirs": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-development@1.4.2@egg-development/config/config.default.js",
+    "fastReady": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-development@1.4.2@egg-development/config/config.default.js",
+    "reloadOnDebug": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-development@1.4.2@egg-development/config/config.default.js"
+  },
   "logrotator": {
     "filesRotateByHour": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-logrotator@2.3.3@egg-logrotator/config/config.default.js",
     "hourDelimiter": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-logrotator@2.3.3@egg-logrotator/config/config.default.js",
@@ -132,13 +138,12 @@
     "dir": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-static@1.5.1@egg-static/config/config.default.js",
     "dynamic": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-static@1.5.1@egg-static/config/config.default.js",
     "preload": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-static@1.5.1@egg-static/config/config.default.js",
-    "buffer": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-static@1.5.1@egg-static/config/config.prod.js",
-    "maxFiles": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-static@1.5.1@egg-static/config/config.default.js",
-    "maxAge": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-static@1.5.1@egg-static/config/config.prod.js"
+    "buffer": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-static@1.5.1@egg-static/config/config.default.js",
+    "maxFiles": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-static@1.5.1@egg-static/config/config.default.js"
   },
   "view": {
     "root": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-view@1.2.0@egg-view/config/config.default.js",
-    "cache": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-view@1.2.0@egg-view/config/config.default.js",
+    "cache": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-view@1.2.0@egg-view/config/config.local.js",
     "defaultExtension": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-view@1.2.0@egg-view/config/config.default.js",
     "defaultViewEngine": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-view@1.2.0@egg-view/config/config.default.js",
     "mapping": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg-view@1.2.0@egg-view/config/config.default.js"
@@ -230,7 +235,9 @@
     "coreLogName": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg@1.19.0@egg/config/config.default.js",
     "agentLogName": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg@1.19.0@egg/config/config.default.js",
     "errorLogName": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg@1.19.0@egg/config/config.default.js",
-    "coreLogger": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg@1.19.0@egg/config/config.default.js",
+    "coreLogger": {
+      "consoleLevel": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg@1.19.0@egg/config/config.local.js"
+    },
     "allowDebugAtProd": "/Users/kunlingwu/Desktop/newDemo/cnode-api/node_modules/_egg@1.19.0@egg/config/config.default.js"
   },
   "httpclient": {
