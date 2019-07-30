@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <table id="customers">
+    <table id="customers">
       <tr>
         <th />
         <th v-for=" (item,index) in headWeek" :key="index">
@@ -8,7 +8,11 @@
         </th>
       </tr>
       <tr v-for="(row,rowindex) in arr" :key="rowindex">
-        <td>{{ row.start }}</td>
+        <td>
+          <div>
+            {{ row.start }}
+          </div>
+        </td>
         <td
           v-for=" (item, index) in headWeek"
           :key="index"
@@ -22,8 +26,8 @@
           </div>
         </td>
       </tr>
-    </table> -->
-    <table id="customers">
+    </table>
+    <!-- <table id="customers">
       <tr>
         <th> <span>dscdscd</span></th>
         <th v-for=" (item,index) in headWeek" :key="index"> <span>{{ item.date }}</span></th>
@@ -43,7 +47,7 @@
           </div>
         </td>
       </tr>
-    </table>
+    </table> -->
   </div>
 </template>
 
@@ -172,10 +176,10 @@ export default {
 #customers td,
 #customers th {
 	text-align: center;
-	font-size: 1em;
-	border: 1px solid #98bf21;
-	padding: 31px 7px 2px 7px;
-	position: relative;
+    font-size: 1em;
+    border: 1px solid #98bf21;
+    position: relative;
+    height: 30px;
 }
 
 #customers th {

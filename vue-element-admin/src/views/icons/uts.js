@@ -43,8 +43,16 @@ export function getMonDate(e) {
 }
 // 0-6转换成中文名称
 export function getDayName(days) {
+  var now = new Date()
   const day = parseInt(days)
   if (isNaN(day) || day < 0 || day > 6) { return false }
-  var weekday = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
-  return weekday[day]
+  const weekday = [{ name: '星期天', current: false }, { name: '星期一', current: false }, { name: '星期二', current: false }, { name: '星期三', current: false }, { name: '星期四', current: false }, { name: '星期五', current: false }, { name: '星期六', current: false }]
+  let current = false
+  if (day === now.getDay(days)) {
+    current = true
+  }
+  return {
+    current: current,
+    week: weekday[day].name
+  }
 }
