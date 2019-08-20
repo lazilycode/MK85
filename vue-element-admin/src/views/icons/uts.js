@@ -46,7 +46,7 @@ export function getDayName(days) {
   var now = new Date()
   const day = parseInt(days)
   if (isNaN(day) || day < 0 || day > 6) { return false }
-  const weekday = [{ name: '星期天', current: false }, { name: '星期一', current: false }, { name: '星期二', current: false }, { name: '星期三', current: false }, { name: '星期四', current: false }, { name: '星期五', current: false }, { name: '星期六', current: false }]
+  const weekday = [{ name: '周日', current: false }, { name: '周一', current: false }, { name: '周二', current: false }, { name: '周三', current: false }, { name: '周四', current: false }, { name: '周五', current: false }, { name: '周六', current: false }]
   let current = false
   if (day === now.getDay(days)) {
     current = true
@@ -55,4 +55,43 @@ export function getDayName(days) {
     current: current,
     week: weekday[day].name
   }
+}
+
+export function time_range(beginTime, endTime, nowTime) {
+  var strb = beginTime.split(':')
+  if (strb.length !== 2) {
+    return false
+  }
+
+  var stre = endTime.split(':')
+  if (stre.length !== 2) {
+    return false
+  }
+
+  var strn = nowTime.split(':')
+  if (stre.length !== 2) {
+    return false
+  }
+  var b = new Date()
+  var e = new Date()
+  var n = new Date()
+
+  b.setHours(strb[0])
+  b.setMinutes(strb[1])
+  e.setHours(stre[0])
+  e.setMinutes(stre[1])
+  n.setHours(strn[0])
+  n.setMinutes(strn[1])
+
+  if (n.getTime() - b.getTime() >= 0 && n.getTime() - e.getTime() < 0) {
+    return true
+  } else {
+    // alert ("当前时间是：" + n.getHours () + ":" + n.getMinutes () + "，不在该时间范围内！");
+    return false
+  }
+}
+
+// 处理时间结果
+export function timeResult(e, minTime, slotDuration, i, num) {
+  return (new Date(formatDate(e, 'YYYY-MM-DD') + ' ' + minTime).getTime() / 1000 +	(i + num) * parseInt(slotDuration) * 60) * 1000
 }

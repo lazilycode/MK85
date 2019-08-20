@@ -76,10 +76,21 @@ export default {
         {
           html: '<span>sdjcbniunciuejnce<span>',
           hover: 'hover',
-          startDay: '2019-7-31 11:00',
-          endDay: '2019-7-31 12:00',
-          day: '2019-7-31',
+          startDay: '2019-8-8 11:00',
+          endDay: '2019-8-8 12:00',
+          day: '2019-8-8',
           start: '14:00',
+          end: '16:00',
+          title: 353,
+          className: 'demo'
+        },
+        {
+          html: '<span>sdjcbniunciuejnce<span>',
+          hover: 'hover',
+          startDay: '2019-8-8 12:40',
+          endDay: '2019-8-8 12:00',
+          day: '2019-8-8',
+          start: '15:20',
           end: '16:00',
           title: 353,
           className: 'demo'

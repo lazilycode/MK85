@@ -6,6 +6,7 @@
       format="yyyy 第 WW 周"
       value-format="yyyy-MM-dd"
       placeholder="选择周"
+      :picker-options="{ firstDayOfWeek: 1}"
       :clearable="false"
       @change="changeWeek"
     />
@@ -60,7 +61,7 @@
 import { formatDate, getMonDate, getDayName, time_range } from './uts'
 // import { debounce } from '@/utils'
 export default {
-  data () {
+  data() {
     return {
       value3: '',
       nowDate: new Date(),
@@ -85,8 +86,8 @@ export default {
         // },
         {
           html: '<span>sdjcbniunciuejnce<span>',
-          startDay: '2019-07-31 11:45',
-          endDay: '2019-07-31 16:55',
+          startDay: '2019-08-15 11:45',
+          endDay: '2019-08-15 16:55',
           title: 3552125312121,
           Bg: '#74a8fb',
           className: 'demo'
@@ -111,17 +112,17 @@ export default {
       ]
     }
   },
-  mounted () {
+  mounted() {
     // 数据校验
     this.dataTr()
     this.headerTable(this.nowDate)
     this.sunDayWeek(this.nowDate)
-
+    this.changeWeek()
     // this.timesection()
   },
   methods: {
 
-    count (b, a) {
+    count(b, a) {
       // 每个高度为30px
       var date1 = new Date(b)
       var date2 = new Date(a)
@@ -130,7 +131,7 @@ export default {
       return { bottomHeight, topHeight }
     },
 
-    dataTr () {
+    dataTr() {
       if (!this.config.minTime && !this.config.maxTime && !this.config.slotDuration) {
         this.config.minTime = '00:00'
         this.config.maxTime = '26:00'
@@ -144,16 +145,16 @@ export default {
       })
     },
 
-    sunDayWeek (e, r) {
+    sunDayWeek(e, r) {
       const arr = []
       const next = (parseInt(this.config.maxTime.slice(0, 2)) - parseInt(this.config.minTime.slice(0, 2))) * 2
       for (let i = 0; i < next; i++) {
-        let arrTime = []
+        const arrTime = []
         const timeStart =	(new Date(formatDate(e, 'YYYY-MM-DD') + ' ' + this.config.minTime).getTime() / 1000 +	i * parseInt(this.config.slotDuration) * 60) * 1000
         const timeEnd = (new Date(formatDate(e, 'YYYY-MM-DD') + ' ' + this.config.minTime).getTime() / 1000 +	(i + 1) * parseInt(this.config.slotDuration) * 60) *	1000
         this.headWeek.map(item => {
-          let startTimes = (new Date(formatDate(item.date + ' ' + this.config.minTime, 'YYYY-MM-DD') + ' ' + this.config.minTime).getTime() / 1000 +	(i) * parseInt(this.config.slotDuration) * 60) * 1000
-          let endTimes = (new Date(formatDate(item.date + ' ' + this.config.minTime, 'YYYY-MM-DD') + ' ' + this.config.minTime).getTime() / 1000 +	(i + 1) * parseInt(this.config.slotDuration) * 60) * 1000
+          const startTimes = (new Date(formatDate(item.date + ' ' + this.config.minTime, 'YYYY-MM-DD') + ' ' + this.config.minTime).getTime() / 1000 +	(i) * parseInt(this.config.slotDuration) * 60) * 1000
+          const endTimes = (new Date(formatDate(item.date + ' ' + this.config.minTime, 'YYYY-MM-DD') + ' ' + this.config.minTime).getTime() / 1000 +	(i + 1) * parseInt(this.config.slotDuration) * 60) * 1000
           item.startTime = formatDate(new Date(startTimes), 'YYYY-MM-DD hh:mm')
           item.endTime = formatDate(new Date(endTimes), 'YYYY-MM-DD hh:mm')
           arrTime.push({ startTime: item.startTime, endTime: item.endTime, date: formatDate(new Date(item.startTime), 'YYYY-MM-DD') })
@@ -170,7 +171,7 @@ export default {
     },
 
     // table 表格头部
-    headerTable (e) {
+    headerTable(e) {
       const d = getMonDate(e)
       const arr = []
       for (var i = 0; i < 7; i++) {
@@ -186,7 +187,7 @@ export default {
       this.headWeek = arr
     },
 
-    dataTreating () {
+    dataTreating() {
       // 初始化
       // const dataArr = []
       if (!this.config.minTime && !this.config.maxTime) {
@@ -196,7 +197,7 @@ export default {
     },
 
     // 较长的日期按时间段分割
-    timesection () {
+    timesection() {
       this.daArr.forEach((item, index) => {
         // 获取秒除以时间间隔
         let mistiming = new Date(item.endDay).getTime() - new Date(item.startDay).getTime()
@@ -205,16 +206,16 @@ export default {
       })
     },
 
-    eventClick (item, s) {
+    eventClick(item, s) {
       console.log(item, s)
     },
-    markClick (e, r) {
+    markClick(e, r) {
       console.log(e, r, '5566')
     },
-    changeWeek () {
+    changeWeek() {
       this.headerTable(this.value3)
     },
-    changeTime (e, r) {
+    changeTime(e, r) {
       if (e == 1) {
         this.$nextTick(() => {
           this.sunDayWeek(this.nowDate, e)
@@ -236,7 +237,7 @@ export default {
         // console.log( this.config)
       }
     },
-    timeRange (beginTime, endTime, nowTime) {
+    timeRange(beginTime, endTime, nowTime) {
       return time_range(beginTime, endTime, nowTime)
     }
 

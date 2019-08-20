@@ -1,11 +1,29 @@
 <template>
-  <div class="app-container">
-    <aside style="margin-top:15px;">{{ $t('pdf.tips') }}</aside>
-    <router-link target="_blank" to="/pdf/download">
-      <el-button type="primary">
-        Click to download PDF
-      </el-button>
-    </router-link>
+  <div>
+    dscd
   </div>
 </template>
 
+<script>
+import moment from 'moment';
+export default {
+  data() {
+    return {
+      article: '',
+      fullscreenLoading: true
+    }
+  },
+  mounted() {
+    this.fetchData()
+  },
+  methods: {
+    fetchData() {
+
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+
+</style>
